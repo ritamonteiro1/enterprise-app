@@ -1,5 +1,6 @@
 package com.example.ioasysmvvm.view
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -9,6 +10,7 @@ import com.example.ioasysmvvm.model.constants.Constants
 import com.example.ioasysmvvm.model.domains.user.EmailStatus
 import com.example.ioasysmvvm.model.domains.user.User
 import com.example.ioasysmvvm.model.domains.user.UserRequest
+import com.example.ioasysmvvm.model.extensions.createLoadingDialog
 import com.example.ioasysmvvm.viewmodel.LoginViewModel
 import com.google.android.material.textfield.TextInputLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -20,10 +22,12 @@ class LoginActivity : AppCompatActivity() {
     private var loginPasswordTextInputLayout: TextInputLayout? = null
     private var loginPasswordEditText: EditText? = null
     private var loginButton: Button? = null
+    private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        loadingDialog = createLoadingDialog()
         findViewsById()
         setupLoginButton()
     }
@@ -51,14 +55,16 @@ class LoginActivity : AppCompatActivity() {
         if (isValidEmail != EmailStatus.VALID || !isValidPassword) {
             return
         } else {
+            loadingDialog?.show()
             val userRequest = UserRequest(user.email, user.password)
-            verifyAuthenticatedUser(userRequest)
+            loginViewModel.verifyAuthenticatedUser(userRequest)
+            verifyAuthenticatedUser()
         }
     }
 
-    private fun verifyAuthenticatedUser(userRequest: UserRequest) {
+    private fun verifyAuthenticatedUser() {
         loginViewModel.isAuthenticatedUser.observe(this, {
-
+            var isAuthenticatedUser = it
         })
     }
 
