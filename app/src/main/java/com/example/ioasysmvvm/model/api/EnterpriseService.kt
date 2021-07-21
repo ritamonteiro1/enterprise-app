@@ -2,15 +2,12 @@ package com.example.ioasysmvvm.model.api
 
 import com.example.ioasysmvvm.model.constants.Constants
 import com.example.ioasysmvvm.model.domains.enterprise.EnterpriseListResponse
-import com.example.ioasysmvvm.model.domains.user.UserRequest
-import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Query
 
-interface DataService {
-
-    @POST("users/auth/sign_in")
-    suspend fun recoverVerifyLogin(@Body userRequest: UserRequest): Boolean
+interface EnterpriseService {
 
     @GET("enterprises")
     fun recoverEnterpriseListResponse(

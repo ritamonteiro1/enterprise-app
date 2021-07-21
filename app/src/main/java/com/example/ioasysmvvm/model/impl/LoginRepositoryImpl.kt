@@ -1,11 +1,11 @@
 package com.example.ioasysmvvm.model.impl
 
-import com.example.ioasysmvvm.model.api.DataService
+import com.example.ioasysmvvm.model.api.LoginService
 import com.example.ioasysmvvm.model.domains.user.UserRequest
 import com.example.ioasysmvvm.model.repository.LoginRepository
 
-class LoginRepositoryImpl(private val dataService: DataService): LoginRepository {
+class LoginRepositoryImpl(private val loginService: LoginService): LoginRepository {
     override suspend fun isAuthenticatedUser(userRequest: UserRequest): Boolean {
-        return dataService.recoverVerifyLogin(userRequest)
+        return loginService.recoverVerifyLogin(userRequest)
     }
 }
