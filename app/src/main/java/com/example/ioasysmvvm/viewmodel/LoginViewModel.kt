@@ -25,4 +25,12 @@ class LoginViewModel(
             _isAuthenticatedUser.postValue(isLoginAuthenticatedUser)
         }
     }
+
+    fun isValidEmail(email: String){
+
+    }
+
+    fun isValidPassword(password: String){
+
+    }
 }
