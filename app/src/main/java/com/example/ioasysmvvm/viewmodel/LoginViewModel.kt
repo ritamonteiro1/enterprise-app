@@ -20,10 +20,10 @@ class LoginViewModel(
 ) : ViewModel() {
     private val _isAuthenticatedUser = MutableLiveData<Boolean>()
     val isAuthenticatedUser: LiveData<Boolean> = _isAuthenticatedUser
-    private val _isUserValidEmail = MutableLiveData<EmailStatus>()
-    val isUserValidEmail: LiveData<EmailStatus> = _isUserValidEmail
-    private val _isUserValidPassword = MutableLiveData<Boolean>()
-    val isUserValidPassword: LiveData<Boolean> = _isUserValidPassword
+    private val _isValidUserEmail = MutableLiveData<EmailStatus>()
+    val isValidUserEmail: LiveData<EmailStatus> = _isValidUserEmail
+    private val _isValidUserPassword = MutableLiveData<Boolean>()
+    val isValidUserPassword: LiveData<Boolean> = _isValidUserPassword
 
     fun verifyAuthenticatedUser(userRequest: UserRequest) {
         viewModelScope.launch(dispatcher) {
@@ -34,11 +34,11 @@ class LoginViewModel(
 
     fun isValidEmail(user: User) {
         val isValidEmail: EmailStatus = user.isValidEmail()
-        _isUserValidEmail.postValue(isValidEmail)
+        _isValidUserEmail.postValue(isValidEmail)
     }
 
     fun isValidPassword(user: User) {
         val isValidPassword: Boolean = user.isValidPassword()
-        _isUserValidPassword.postValue(isValidPassword)
+        _isValidUserPassword.postValue(isValidPassword)
     }
 }
