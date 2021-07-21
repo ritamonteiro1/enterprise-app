@@ -22,6 +22,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         findViewsById()
+        setupLoginButton()
+    }
+
+    private fun setupLoginButton() {
+        TODO("Not yet implemented")
     }
 
     private fun findViewsById() {
