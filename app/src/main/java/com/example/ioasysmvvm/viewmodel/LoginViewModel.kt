@@ -1,20 +1,28 @@
 package com.example.ioasysmvvm.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.ioasysmvvm.model.api.Api
-import com.example.ioasysmvvm.model.api.DataService
+import androidx.lifecycle.viewModelScope
 import com.example.ioasysmvvm.model.domains.user.UserRequest
-import okhttp3.ResponseBody
-import retrofit2.Call
+import com.example.ioasysmvvm.model.repository.LoginRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
+import kotlin.coroutines.CoroutineContext
 
 
-class LoginViewModel : ViewModel() {
-    fun initLoginViewModel(userRequest: UserRequest) {
-        val dataService: DataService = Api.setupRetrofit().create(DataService::class.java)
-        val call: Call<ResponseBody> = dataService.recoverVerifyLogin(userRequest)
-        doLogin(call)
-    }
-    private fun doLogin(call: Call<ResponseBody>) {
+class LoginViewModel(
+    private val loginRepository: LoginRepository,
+    private val dispatcher: CoroutineContext = Dispatchers.IO
+) : ViewModel() {
+    private val _isAuthenticatedUser = MutableLiveData<Boolean>()
+    val isAuthenticatedUser: LiveData<Boolean> = _isAuthenticatedUser
 
+    fun verifyAuthenticatedUser(userRequest: UserRequest) {
+        viewModelScope.launch(dispatcher) {
+            val isLoginAuthenticatedUser = loginRepository.isAuthenticatedUser(userRequest)
+            _isAuthenticatedUser.postValue(isLoginAuthenticatedUser)
+        }
     }
 }

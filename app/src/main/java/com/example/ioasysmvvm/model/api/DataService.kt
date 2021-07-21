@@ -10,7 +10,7 @@ import retrofit2.http.*
 interface DataService {
 
     @POST("users/auth/sign_in")
-    fun recoverVerifyLogin(@Body userRequest: UserRequest): Call<ResponseBody>
+    suspend fun recoverVerifyLogin(@Body userRequest: UserRequest): Boolean
 
     @GET("enterprises")
     fun recoverEnterpriseListResponse(
