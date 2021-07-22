@@ -1,6 +1,7 @@
 package com.example.ioasysmvvm.view
 
 import android.app.Dialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -39,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupObservers(){
+    private fun setupObservers() {
         loginViewModel.isValidUserEmail.observe(this, {
             treatInvalidEmail(it)
         })
@@ -47,8 +48,18 @@ class LoginActivity : AppCompatActivity() {
             treatInvalidPassword(it)
         })
         loginViewModel.isAuthenticatedUser.observe(this, {
-
+//            if (it) {
+//                moveMainActivity(accessToken, uid, client)
+//            }
         })
+    }
+
+    private fun moveMainActivity(accessToken: String, uid: String, client: String) {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra(Constants.HEADER_ACCESS_TOKEN, accessToken)
+        intent.putExtra(Constants.HEADER_UID, uid)
+        intent.putExtra(Constants.HEADER_CLIENT, client)
+        startActivity(intent)
     }
 
 
