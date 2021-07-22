@@ -28,15 +28,17 @@ class LoginViewModel(
         viewModelScope.launch(dispatcher) {
             val isLoginAuthenticatedUser = loginRepository.isAuthenticatedUser(user)
             _isAuthenticatedUser.postValue(isLoginAuthenticatedUser)
+            isValidEmail(user)
+            isValidPassword(user)
         }
     }
 
-    fun isValidEmail(user: User) {
+    private fun isValidEmail(user: User) {
         val isValidEmail: EmailStatus = user.isValidEmail()
         _isValidUserEmail.postValue(isValidEmail)
     }
 
-    fun isValidPassword(user: User) {
+    private fun isValidPassword(user: User) {
         val isValidPassword: Boolean = user.isValidPassword()
         _isValidUserPassword.postValue(isValidPassword)
     }
