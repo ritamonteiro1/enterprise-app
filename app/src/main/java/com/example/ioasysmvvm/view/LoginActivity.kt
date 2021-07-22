@@ -60,6 +60,7 @@ class LoginActivity : AppCompatActivity() {
         intent.putExtra(Constants.HEADER_UID, uid)
         intent.putExtra(Constants.HEADER_CLIENT, client)
         startActivity(intent)
+        finish()
     }
 
 
