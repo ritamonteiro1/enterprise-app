@@ -1,15 +1,20 @@
 package com.example.ioasysmvvm.view
 
 import android.app.Dialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ioasysmvvm.R
+import com.example.ioasysmvvm.model.adapter.EnterpriseListAdapter
+import com.example.ioasysmvvm.model.click.listener.OnEnterpriseItemClickListener
 import com.example.ioasysmvvm.model.constants.Constants
+import com.example.ioasysmvvm.model.domains.enterprise.Enterprise
 import com.example.ioasysmvvm.model.extensions.createLoadingDialog
 import com.example.ioasysmvvm.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -58,8 +63,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupObservers() {
         mainViewModel.enterpriseList.observe(this, {
-
+            val enterpriseList: List<Enterprise> = it
+            val enterpriseListAdapter = setupEnterpriseListAdapter(enterpriseList)
+            setupRecyclerView(enterpriseListAdapter)
         })
+    }
+
+    private fun setupEnterpriseListAdapter(enterpriseList: List<Enterprise>): EnterpriseListAdapter {
+        return EnterpriseListAdapter(
+            enterpriseList,
+            object : OnEnterpriseItemClickListener {
+                override fun onClick(enterprise: Enterprise) {
+                    val intent = Intent(this@MainActivity, ResultActivity::class.java)
+                    intent.putExtra(Constants.ENTERPRISE_DETAILS, enterprise)
+                    startActivity(intent)
+                }
+            })
+    }
+
+    private fun setupRecyclerView(enterpriseListAdapter: EnterpriseListAdapter) {
+        mainRecyclerView?.adapter = enterpriseListAdapter
+        val layoutManager = LinearLayoutManager(
+            this, LinearLayoutManager.VERTICAL, false
+        )
+        mainRecyclerView?.layoutManager = layoutManager
     }
 
     private fun setupToolBar() {
