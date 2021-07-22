@@ -11,6 +11,7 @@ import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.model.constants.Constants
 import com.example.ioasysmvvm.model.domains.enterprise.Enterprise
 import com.example.ioasysmvvm.model.extensions.createLoadingDialog
+import com.example.ioasysmvvm.model.extensions.downloadImage
 
 class ResultActivity : AppCompatActivity() {
     private var resultToolBar: Toolbar? = null
@@ -22,9 +23,19 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
         loadingDialog = createLoadingDialog()
+        loadingDialog?.show()
         findViewsById()
         val enterprise: Enterprise = retrieverEnterprise()
         setupToolBar(enterprise.enterpriseName)
+        showEnterpriseDetails(enterprise)
+    }
+
+    private fun showEnterpriseDetails(enterprise: Enterprise) {
+        loadingDialog?.dismiss()
+        resultEnterpriseImageView?.downloadImage(
+            Constants.BASE_IMAGE_URL + enterprise.photo
+        )
+        resultDescriptionEnterpriseTextView?.text = enterprise.description
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
