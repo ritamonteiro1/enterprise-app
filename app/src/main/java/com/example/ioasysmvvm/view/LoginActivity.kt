@@ -9,7 +9,6 @@ import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.model.constants.Constants
 import com.example.ioasysmvvm.model.domains.user.EmailStatus
 import com.example.ioasysmvvm.model.domains.user.User
-import com.example.ioasysmvvm.model.domains.user.UserRequest
 import com.example.ioasysmvvm.model.extensions.createLoadingDialog
 import com.example.ioasysmvvm.viewmodel.LoginViewModel
 import com.google.android.material.textfield.TextInputLayout
@@ -29,44 +28,29 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         loadingDialog = createLoadingDialog()
         findViewsById()
+        setupObservers()
         setupLoginButton()
     }
 
     private fun setupLoginButton() {
         loginButton?.setOnClickListener {
             val user = setupUser()
-            verifyValidUserEmailAndPassword(user)
+            loginViewModel.doLogin(user)
         }
     }
 
-    private fun verifyValidUserEmailAndPassword(user: User) {
-        loginViewModel.isValidEmail(user)
-        var isValidEmail: EmailStatus = EmailStatus.EMPTY
+    private fun setupObservers(){
         loginViewModel.isValidUserEmail.observe(this, {
-            isValidEmail = it
-            treatInvalidEmail(isValidEmail)
+            treatInvalidEmail(it)
         })
-        loginViewModel.isValidPassword(user)
-        var isValidPassword = false
         loginViewModel.isValidUserPassword.observe(this, {
-            isValidPassword = it
-            treatInvalidPassword(isValidPassword)
+            treatInvalidPassword(it)
         })
-        if (isValidEmail != EmailStatus.VALID || !isValidPassword) {
-            return
-        } else {
-            loadingDialog?.show()
-            val userRequest = UserRequest(user.email, user.password)
-            loginViewModel.verifyAuthenticatedUser(userRequest)
-            verifyAuthenticatedUser()
-        }
+        loginViewModel.isAuthenticatedUser.observe(this, {
+
+        })
     }
 
-    private fun verifyAuthenticatedUser() {
-        loginViewModel.isAuthenticatedUser.observe(this, {
-            var isAuthenticatedUser = it
-        })
-    }
 
     private fun treatInvalidPassword(isValidPassword: Boolean) {
         if (isValidPassword) {

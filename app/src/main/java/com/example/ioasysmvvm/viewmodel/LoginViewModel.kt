@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ioasysmvvm.model.domains.user.EmailStatus
 import com.example.ioasysmvvm.model.domains.user.User
-import com.example.ioasysmvvm.model.domains.user.UserRequest
 import com.example.ioasysmvvm.model.repository.LoginRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,9 +24,9 @@ class LoginViewModel(
     private val _isValidUserPassword = MutableLiveData<Boolean>()
     val isValidUserPassword: LiveData<Boolean> = _isValidUserPassword
 
-    fun verifyAuthenticatedUser(userRequest: UserRequest) {
+    fun doLogin(user: User) {
         viewModelScope.launch(dispatcher) {
-            val isLoginAuthenticatedUser = loginRepository.isAuthenticatedUser(userRequest)
+            val isLoginAuthenticatedUser = loginRepository.isAuthenticatedUser(user)
             _isAuthenticatedUser.postValue(isLoginAuthenticatedUser)
         }
     }

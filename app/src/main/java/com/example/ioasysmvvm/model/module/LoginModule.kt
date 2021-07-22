@@ -4,6 +4,8 @@ import com.example.ioasysmvvm.model.api.LoginService
 import com.example.ioasysmvvm.model.impl.LoginRepositoryImpl
 import com.example.ioasysmvvm.model.repository.LoginRepository
 import com.example.ioasysmvvm.viewmodel.LoginViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
