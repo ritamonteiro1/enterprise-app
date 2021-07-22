@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.model.extensions.createLoadingDialog
+import com.example.ioasysmvvm.viewmodel.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
+    private val mainViewModel: MainViewModel by viewModel()
     private var mainInformationTextView: TextView? = null
     private var mainToolBar: Toolbar? = null
     private var mainRecyclerView: RecyclerView? = null
@@ -25,7 +29,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        TODO("Not yet implemented")
+        mainViewModel.enterpriseList.observe(this, {
+
+        })
     }
 
     private fun setupToolBar() {
