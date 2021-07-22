@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         val accessToken = intent.getStringExtra(Constants.HEADER_ACCESS_TOKEN).orEmpty()
         val uid = intent.getStringExtra(Constants.HEADER_UID).orEmpty()
         val client = intent.getStringExtra(Constants.HEADER_CLIENT).orEmpty()
+        mainViewModel.getEnterpriseList(accessToken, client, uid, newText)
     }
 
     private fun setupObservers() {

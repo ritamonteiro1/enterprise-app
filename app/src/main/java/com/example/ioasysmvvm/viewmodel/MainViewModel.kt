@@ -23,7 +23,7 @@ class MainViewModel(
         uid: String,
         enterpriseName: String
     ) {
-        viewModelScope.launch {
+        viewModelScope.launch(dispatcher) {
             val enterprises: List<Enterprise> =
                 mainRepository.getEnterpriseList(accessToken, client, uid, enterpriseName)
             _enterpriseList.postValue(enterprises)
