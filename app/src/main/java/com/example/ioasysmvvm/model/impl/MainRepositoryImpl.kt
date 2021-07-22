@@ -6,9 +6,19 @@ import com.example.ioasysmvvm.model.domains.enterprise.EnterpriseType
 import com.example.ioasysmvvm.model.repository.MainRepository
 
 class MainRepositoryImpl(private val enterpriseService: EnterpriseService) : MainRepository {
-    private val enterpriseListResponse = enterpriseService.recoverEnterpriseListResponse()
-    override suspend fun getEnterpriseList(): List<Enterprise> =
-        enterpriseListResponse.enterprises?.map { enterpriseResponse ->
+    override suspend fun getEnterpriseList(
+        accessToken: String,
+        client: String,
+        uid: String,
+        enterpriseName: String
+    ): List<Enterprise> {
+        val enterpriseListResponse = enterpriseService.recoverEnterpriseListResponse(
+            accessToken,
+            client,
+            uid,
+            enterpriseName
+        )
+        return enterpriseListResponse.enterprises?.map { enterpriseResponse ->
             Enterprise(
                 enterpriseResponse.enterpriseName.orEmpty(),
                 enterpriseResponse.photo.orEmpty(),
@@ -19,4 +29,5 @@ class MainRepositoryImpl(private val enterpriseService: EnterpriseService) : Mai
                 )
             )
         } ?: emptyList()
+    }
 }
