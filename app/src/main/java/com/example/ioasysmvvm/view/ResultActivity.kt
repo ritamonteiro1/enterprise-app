@@ -11,13 +11,13 @@ import com.example.ioasysmvvm.model.extensions.createLoadingDialog
 import com.example.ioasysmvvm.model.extensions.downloadImage
 
 class ResultActivity : AppCompatActivity() {
-    private var resultViewBinding: ActivityResultBinding? = null
+    private lateinit var resultViewBinding: ActivityResultBinding
     private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         resultViewBinding = ActivityResultBinding.inflate(layoutInflater)
-        setContentView(resultViewBinding?.root)
+        setContentView(resultViewBinding.root)
         loadingDialog = createLoadingDialog()
         loadingDialog?.show()
         val enterprise: Enterprise = retrieverEnterprise()
@@ -27,10 +27,10 @@ class ResultActivity : AppCompatActivity() {
 
     private fun showEnterpriseDetails(enterprise: Enterprise) {
         loadingDialog?.dismiss()
-        resultViewBinding?.resultEnterpriseImageView?.downloadImage(
+        resultViewBinding.resultEnterpriseImageView.downloadImage(
             Constants.BASE_IMAGE_URL + enterprise.photo
         )
-        resultViewBinding?.resultDescriptionEnterpriseTextView?.text = enterprise.description
+        resultViewBinding.resultDescriptionEnterpriseTextView.text = enterprise.description
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -42,7 +42,7 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun setupToolBar(enterpriseName: String) {
-        setSupportActionBar(resultViewBinding?.resultToolBar)
+        setSupportActionBar(resultViewBinding.resultToolBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = enterpriseName
     }

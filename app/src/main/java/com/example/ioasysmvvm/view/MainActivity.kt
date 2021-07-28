@@ -19,13 +19,13 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModel()
-    private var mainViewBinding: ActivityMainBinding? = null
+    private lateinit var mainViewBinding: ActivityMainBinding
     private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainViewBinding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(mainViewBinding?.root)
+        setContentView(mainViewBinding.root)
         loadingDialog = createLoadingDialog()
         setupObservers()
         setupToolBar()
@@ -78,15 +78,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView(enterpriseListAdapter: EnterpriseListAdapter) {
-        mainViewBinding?.mainRecyclerView?.adapter = enterpriseListAdapter
+        mainViewBinding.mainRecyclerView.adapter = enterpriseListAdapter
         val layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.VERTICAL, false
         )
-        mainViewBinding?.mainRecyclerView?.layoutManager = layoutManager
+        mainViewBinding.mainRecyclerView.layoutManager = layoutManager
     }
 
     private fun setupToolBar() {
-        setSupportActionBar(mainViewBinding?.mainToolBar)
+        setSupportActionBar(mainViewBinding.mainToolBar)
         supportActionBar?.setLogo(R.drawable.img_logo_nav)
         supportActionBar?.setDisplayShowHomeEnabled(false)
         supportActionBar?.setDisplayUseLogoEnabled(true)
