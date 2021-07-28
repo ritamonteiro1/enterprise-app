@@ -15,20 +15,20 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
     private val loginViewModel: LoginViewModel by viewModel()
-    private var loginViewBinding: ActivityLoginBinding? = null
+    private lateinit var loginViewBinding: ActivityLoginBinding
     private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginViewBinding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(loginViewBinding?.root)
+        setContentView(loginViewBinding.root)
         loadingDialog = createLoadingDialog ()
         setupObservers()
         setupLoginButton()
     }
 
     private fun setupLoginButton() {
-       loginViewBinding?.loginButton?.setOnClickListener {
+       loginViewBinding.loginButton.setOnClickListener {
             val user = setupUser()
             loginViewModel.doLogin(user)
         }
@@ -60,28 +60,28 @@ class LoginActivity : AppCompatActivity() {
 
     private fun treatInvalidPassword(isValidPassword: Boolean) {
         if (isValidPassword) {
-            loginViewBinding?.loginPasswordTextInputLayout?.error = Constants.EMPTY
+            loginViewBinding.loginPasswordTextInputLayout.error = Constants.EMPTY
         } else {
-            loginViewBinding?.loginPasswordTextInputLayout?.error = getString(R.string.fill_the_field)
+            loginViewBinding.loginPasswordTextInputLayout.error = getString(R.string.fill_the_field)
         }
     }
 
     private fun treatInvalidEmail(isValidEmail: EmailStatus) {
         when (isValidEmail) {
             EmailStatus.VALID -> {
-                loginViewBinding?.loginEmailTextInputLayout?.error = Constants.EMPTY
+                loginViewBinding.loginEmailTextInputLayout.error = Constants.EMPTY
             }
             EmailStatus.EMPTY -> {
-                loginViewBinding?.loginEmailTextInputLayout?.error = getString(R.string.fill_the_field)
+                loginViewBinding.loginEmailTextInputLayout.error = getString(R.string.fill_the_field)
             }
             else -> {
-                loginViewBinding?.loginEmailTextInputLayout?.error = getString(R.string.incorrect_email)
+                loginViewBinding.loginEmailTextInputLayout.error = getString(R.string.incorrect_email)
             }
         }
     }
 
     private fun setupUser() = User(
-        loginViewBinding?.loginEmailEditText?.text?.toString().orEmpty(),
-        loginViewBinding?.loginPasswordEditText?.text?.toString().orEmpty()
+        loginViewBinding.loginEmailEditText.text?.toString().orEmpty(),
+        loginViewBinding.loginPasswordEditText.text?.toString().orEmpty()
     )
 }
