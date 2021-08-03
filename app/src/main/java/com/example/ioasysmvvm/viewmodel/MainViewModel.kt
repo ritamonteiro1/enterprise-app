@@ -31,21 +31,20 @@ class MainViewModel(
         enterpriseName: String
     ) {
         viewModelScope.launch(dispatcher) {
+            _loading.postValue(true)
+            _informationToStartSearch.postValue(false)
             val result = enterpriseRepository.getEnterpriseList(
                 accessToken,
                 client,
                 uid,
                 enterpriseName
             )
-            _loading.postValue(true)
             when (result) {
                 is Result.Error -> {
-                    _informationToStartSearch.postValue(false)
                     _loading.postValue(false)
                     _error.postValue(result.exception)
                 }
                 is Result.Success -> {
-                    _informationToStartSearch.postValue(false)
                     _loading.postValue(false)
                     _enterpriseList.postValue(result.data)
                 }
