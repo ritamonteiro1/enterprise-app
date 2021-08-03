@@ -25,19 +25,19 @@ class MainViewModel(
     val informationToInit: LiveData<Boolean> = _informationToStartSearch
 
     fun getEnterpriseList(
+        enterpriseName: String,
         accessToken: String,
         client: String,
-        uid: String,
-        enterpriseName: String
+        uid: String
     ) {
         viewModelScope.launch(dispatcher) {
             _loading.postValue(true)
             _informationToStartSearch.postValue(false)
             val result = enterpriseRepository.getEnterpriseList(
+                enterpriseName,
                 accessToken,
                 client,
-                uid,
-                enterpriseName
+                uid
             )
             when (result) {
                 is Result.Error -> {

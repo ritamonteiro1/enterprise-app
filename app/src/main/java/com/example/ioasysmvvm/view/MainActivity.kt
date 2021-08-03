@@ -55,15 +55,17 @@ class MainActivity : AppCompatActivity() {
         val accessToken = intent.getStringExtra(Constants.HEADER_ACCESS_TOKEN).orEmpty()
         val uid = intent.getStringExtra(Constants.HEADER_UID).orEmpty()
         val client = intent.getStringExtra(Constants.HEADER_CLIENT).orEmpty()
-        viewModel.getEnterpriseList(accessToken, client, uid, newText)
+        viewModel.getEnterpriseList(newText, accessToken, client, uid)
     }
 
     private fun setupObservers() {
         viewModel.enterpriseList.observe(this, {
             if (it == null) {
                 binding.mainInformationNoResultTextView.visibility = View.VISIBLE
+                binding.mainRecyclerView.visibility = View.GONE
             } else {
                 binding.mainInformationNoResultTextView.visibility = View.GONE
+                binding.mainRecyclerView.visibility = View.VISIBLE
                 val enterpriseListAdapter = setupEnterpriseListAdapter(it)
                 setupRecyclerView(enterpriseListAdapter)
             }

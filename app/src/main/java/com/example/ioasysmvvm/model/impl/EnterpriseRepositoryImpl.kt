@@ -7,17 +7,17 @@ import com.example.ioasysmvvm.model.repository.EnterpriseRepository
 
 class EnterpriseRepositoryImpl(private val enterpriseService: EnterpriseService) : EnterpriseRepository {
     override suspend fun getEnterpriseList(
+        enterpriseName: String,
         accessToken: String,
         client: String,
-        uid: String,
-        enterpriseName: String
+        uid: String
     ): Result<List<Enterprise>> {
         val result = retrofitWrapper {
             enterpriseService.recoverEnterpriseListResponse(
+                enterpriseName,
                 accessToken,
                 client,
-                uid,
-                enterpriseName
+                uid
             )
         }
         return when (result) {
