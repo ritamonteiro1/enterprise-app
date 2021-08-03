@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ioasysmvvm.model.domains.enterprise.Enterprise
+import com.example.ioasysmvvm.model.domains.result.Result
 import com.example.ioasysmvvm.model.repository.EnterpriseRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,6 +21,8 @@ class MainViewModel(
     val error: LiveData<Throwable> = _error
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
+    private val _informationToStartSearch = MutableLiveData<Boolean>()
+    val informationToInit: LiveData<Boolean> = _informationToStartSearch
 
     fun getEnterpriseList(
         accessToken: String,
@@ -28,7 +31,25 @@ class MainViewModel(
         enterpriseName: String
     ) {
         viewModelScope.launch(dispatcher) {
-            val result = enterpriseRepository.getEnterpriseList(accessToken, client, uid, enterpriseName)
+            val result = enterpriseRepository.getEnterpriseList(
+                accessToken,
+                client,
+                uid,
+                enterpriseName
+            )
+            _loading.postValue(true)
+            when (result) {
+                is Result.Error -> {
+                    _informationToStartSearch.postValue(false)
+                    _loading.postValue(false)
+                    _error.postValue(result.exception)
+                }
+                is Result.Success -> {
+                    _informationToStartSearch.postValue(false)
+                    _loading.postValue(false)
+                    _enterpriseList.postValue(result.data)
+                }
+            }
         }
     }
 }

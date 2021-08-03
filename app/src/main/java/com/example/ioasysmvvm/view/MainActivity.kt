@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ioasysmvvm.R
@@ -14,6 +15,7 @@ import com.example.ioasysmvvm.model.click.listener.OnItemClickListener
 import com.example.ioasysmvvm.model.constants.Constants
 import com.example.ioasysmvvm.model.domains.enterprise.Enterprise
 import com.example.ioasysmvvm.model.extensions.createLoadingDialog
+import com.example.ioasysmvvm.model.extensions.showErrorDialog
 import com.example.ioasysmvvm.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -58,9 +60,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupObservers() {
         viewModel.enterpriseList.observe(this, {
-            val enterpriseList: List<Enterprise> = it
-            val enterpriseListAdapter = setupEnterpriseListAdapter(enterpriseList)
-            setupRecyclerView(enterpriseListAdapter)
+            if (it == null) {
+                binding.mainInformationNoResultTextView.visibility = View.VISIBLE
+            } else {
+                binding.mainInformationNoResultTextView.visibility = View.GONE
+                val enterpriseListAdapter = setupEnterpriseListAdapter(it)
+                setupRecyclerView(enterpriseListAdapter)
+            }
+        })
+        viewModel.informationToInit.observe(this, {
+            if (!it) {
+                binding.mainInformationTextView.visibility = View.GONE
+            } else {
+                binding.mainInformationTextView.visibility = View.VISIBLE
+            }
+        })
+        viewModel.loading.observe(this, {
+            if (it) {
+                loadingDialog.show()
+            } else {
+                loadingDialog.dismiss()
+            }
+        })
+        viewModel.error.observe(this, {
+            showErrorDialog(it.message.orEmpty())
         })
     }
 
