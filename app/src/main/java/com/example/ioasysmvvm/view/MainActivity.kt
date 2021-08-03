@@ -18,15 +18,14 @@ import com.example.ioasysmvvm.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
-    private val mainViewModel: MainViewModel by viewModel()
-    private lateinit var mainViewBinding: ActivityMainBinding
-    private var loadingDialog: Dialog? = null
+    private val viewModel: MainViewModel by viewModel()
+    private lateinit var binding: ActivityMainBinding
+    private val loadingDialog: Dialog by lazy { createLoadingDialog() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainViewBinding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(mainViewBinding.root)
-        loadingDialog = createLoadingDialog()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setupObservers()
         setupToolBar()
     }
@@ -54,11 +53,11 @@ class MainActivity : AppCompatActivity() {
         val accessToken = intent.getStringExtra(Constants.HEADER_ACCESS_TOKEN).orEmpty()
         val uid = intent.getStringExtra(Constants.HEADER_UID).orEmpty()
         val client = intent.getStringExtra(Constants.HEADER_CLIENT).orEmpty()
-        mainViewModel.getEnterpriseList(accessToken, client, uid, newText)
+        viewModel.getEnterpriseList(accessToken, client, uid, newText)
     }
 
     private fun setupObservers() {
-        mainViewModel.enterpriseList.observe(this, {
+        viewModel.enterpriseList.observe(this, {
             val enterpriseList: List<Enterprise> = it
             val enterpriseListAdapter = setupEnterpriseListAdapter(enterpriseList)
             setupRecyclerView(enterpriseListAdapter)
@@ -78,15 +77,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView(enterpriseListAdapter: EnterpriseListAdapter) {
-        mainViewBinding.mainRecyclerView.adapter = enterpriseListAdapter
+        binding.mainRecyclerView.adapter = enterpriseListAdapter
         val layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.VERTICAL, false
         )
-        mainViewBinding.mainRecyclerView.layoutManager = layoutManager
+        binding.mainRecyclerView.layoutManager = layoutManager
     }
 
     private fun setupToolBar() {
-        setSupportActionBar(mainViewBinding.mainToolBar)
+        setSupportActionBar(binding.mainToolBar)
         supportActionBar?.setLogo(R.drawable.img_logo_nav)
         supportActionBar?.setDisplayShowHomeEnabled(false)
         supportActionBar?.setDisplayUseLogoEnabled(true)

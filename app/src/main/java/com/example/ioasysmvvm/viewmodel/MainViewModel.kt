@@ -16,6 +16,10 @@ class MainViewModel(
 ) : ViewModel() {
     private val _enterpriseList = MutableLiveData<List<Enterprise>>()
     val enterpriseList: LiveData<List<Enterprise>> = _enterpriseList
+    private val _error = MutableLiveData<Throwable>()
+    val error: LiveData<Throwable> = _error
+    private val _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean> = _loading
 
     fun getEnterpriseList(
         accessToken: String,
@@ -24,9 +28,7 @@ class MainViewModel(
         enterpriseName: String
     ) {
         viewModelScope.launch(dispatcher) {
-//            val enterprises: List<Enterprise> =
-//                mainRepository.getEnterpriseList(accessToken, client, uid, enterpriseName)
-//            _enterpriseList.postValue(enterprises)
+            val result = enterpriseRepository.getEnterpriseList(accessToken, client, uid, enterpriseName)
         }
     }
 }
