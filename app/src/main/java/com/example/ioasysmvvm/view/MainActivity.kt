@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.databinding.ActivityMainBinding
 import com.example.ioasysmvvm.model.adapter.EnterpriseListAdapter
-import com.example.ioasysmvvm.model.click.listener.OnEnterpriseItemClickListener
+import com.example.ioasysmvvm.model.click.listener.OnItemClickListener
 import com.example.ioasysmvvm.model.constants.Constants
 import com.example.ioasysmvvm.model.domains.enterprise.Enterprise
 import com.example.ioasysmvvm.model.extensions.createLoadingDialog
@@ -68,10 +68,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupEnterpriseListAdapter(enterpriseList: List<Enterprise>): EnterpriseListAdapter {
         return EnterpriseListAdapter(
             enterpriseList,
-            object : OnEnterpriseItemClickListener {
-                override fun onClick(enterprise: Enterprise) {
+            object : OnItemClickListener<Enterprise> {
+                override fun onClick(item: Enterprise) {
                     val intent = Intent(this@MainActivity, ResultActivity::class.java)
-                    intent.putExtra(Constants.ENTERPRISE_DETAILS, enterprise)
+                    intent.putExtra(Constants.ENTERPRISE_DETAILS, item)
                     startActivity(intent)
                 }
             })

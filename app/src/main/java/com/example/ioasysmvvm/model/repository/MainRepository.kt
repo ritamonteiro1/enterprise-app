@@ -1,5 +1,6 @@
 package com.example.ioasysmvvm.model.repository
 
+import com.example.ioasysmvvm.model.domains.Result
 import com.example.ioasysmvvm.model.domains.enterprise.Enterprise
 
 interface MainRepository {
@@ -8,5 +9,5 @@ interface MainRepository {
         client: String,
         uid: String,
         enterpriseName: String
-    ): List<Enterprise>
+    ): Result<List<Enterprise>>
 }

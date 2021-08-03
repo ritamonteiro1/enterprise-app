@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface EnterpriseService {
 
     @GET("enterprises")
-    fun recoverEnterpriseListResponse(
+    suspend fun recoverEnterpriseListResponse(
         @Query(Constants.ENTERPRISE_NAME) enterpriseName: String,
         @Header("access-token") accessToken: String,
         @Header("client") client: String,

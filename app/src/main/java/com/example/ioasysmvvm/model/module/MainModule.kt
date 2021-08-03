@@ -1,7 +1,7 @@
 package com.example.ioasysmvvm.model.module
 
 import com.example.ioasysmvvm.model.api.EnterpriseService
-import com.example.ioasysmvvm.model.impl.MainRepositoryImpl
+import com.example.ioasysmvvm.model.impl.EnterpriseRepositoryImpl
 import com.example.ioasysmvvm.model.repository.MainRepository
 import com.example.ioasysmvvm.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -19,7 +19,7 @@ val mainModule = module {
     }
 
     single<MainRepository> {
-        MainRepositoryImpl(get())
+        EnterpriseRepositoryImpl(get())
     }
 
     viewModel { MainViewModel(get()) }

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ioasysmvvm.R
-import com.example.ioasysmvvm.model.click.listener.OnEnterpriseItemClickListener
+import com.example.ioasysmvvm.model.click.listener.OnItemClickListener
 import com.example.ioasysmvvm.model.constants.Constants
 import com.example.ioasysmvvm.model.domains.enterprise.Enterprise
 import com.example.ioasysmvvm.model.extensions.downloadImage
@@ -15,7 +15,7 @@ import com.example.ioasysmvvm.model.extensions.downloadImage
 
 class EnterpriseListAdapter(
     private val enterprises: List<Enterprise>,
-    private val onEnterpriseItemClickListener: OnEnterpriseItemClickListener
+    private val onItemClickListener: OnItemClickListener<Enterprise>
 ) : RecyclerView.Adapter<EnterpriseListAdapter.EnterpriseListViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -30,7 +30,7 @@ class EnterpriseListAdapter(
     }
 
     override fun onBindViewHolder(holder: EnterpriseListViewHolder, position: Int) {
-        holder.bind(enterprises[position], onEnterpriseItemClickListener)
+        holder.bind(enterprises[position], onItemClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -49,7 +49,7 @@ class EnterpriseListAdapter(
 
         fun bind(
             enterprise: Enterprise,
-            onEnterpriseItemClickListener: OnEnterpriseItemClickListener
+            onItemClickListener: OnItemClickListener<Enterprise>
         ) {
             itemEnterpriseCountryTextView.text = enterprise.country
             itemEnterpriseTypeTextView.text =
@@ -58,7 +58,7 @@ class EnterpriseListAdapter(
             itemEnterpriseImageView.downloadImage(
                 Constants.BASE_IMAGE_URL + enterprise.photo
             )
-            itemView.setOnClickListener { onEnterpriseItemClickListener.onClick(enterprise) }
+            itemView.setOnClickListener { onItemClickListener.onClick(enterprise) }
         }
     }
 }
