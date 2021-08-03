@@ -5,13 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ioasysmvvm.model.domains.enterprise.Enterprise
-import com.example.ioasysmvvm.model.repository.MainRepository
+import com.example.ioasysmvvm.model.repository.EnterpriseRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class MainViewModel(
-    private val mainRepository: MainRepository,
+    private val enterpriseRepository: EnterpriseRepository,
     private val dispatcher: CoroutineContext = Dispatchers.IO
 ) : ViewModel() {
     private val _enterpriseList = MutableLiveData<List<Enterprise>>()
