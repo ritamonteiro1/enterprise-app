@@ -12,21 +12,20 @@ import com.example.ioasysmvvm.model.extensions.downloadImage
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var resultViewBinding: ActivityResultBinding
-    private var loadingDialog: Dialog? = null
+    private val loadingDialog: Dialog by lazy { createLoadingDialog() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         resultViewBinding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(resultViewBinding.root)
-        loadingDialog = createLoadingDialog()
-        loadingDialog?.show()
+        loadingDialog.show()
         val enterprise: Enterprise = retrieverEnterprise()
         setupToolBar(enterprise.enterpriseName)
         showEnterpriseDetails(enterprise)
     }
 
     private fun showEnterpriseDetails(enterprise: Enterprise) {
-        loadingDialog?.dismiss()
+        loadingDialog.dismiss()
         resultViewBinding.resultEnterpriseImageView.downloadImage(
             Constants.BASE_IMAGE_URL + enterprise.photo
         )
