@@ -1,6 +1,6 @@
 package com.example.ioasysmvvm.model.impl
 
-import com.example.ioasysmvvm.model.domains.Result
+import com.example.ioasysmvvm.model.domains.result.Result
 import com.example.ioasysmvvm.model.domains.errors.ErrorMessageEnum
 import com.example.ioasysmvvm.model.domains.errors.GenericError
 import com.example.ioasysmvvm.model.domains.errors.ServerError

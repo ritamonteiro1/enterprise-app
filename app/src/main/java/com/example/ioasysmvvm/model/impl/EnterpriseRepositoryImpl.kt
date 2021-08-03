@@ -1,10 +1,8 @@
 package com.example.ioasysmvvm.model.impl
 
 import com.example.ioasysmvvm.model.api.EnterpriseService
-import com.example.ioasysmvvm.model.domains.Result
+import com.example.ioasysmvvm.model.domains.result.Result
 import com.example.ioasysmvvm.model.domains.enterprise.Enterprise
-import com.example.ioasysmvvm.model.domains.enterprise.EnterpriseListResponse
-import com.example.ioasysmvvm.model.domains.enterprise.EnterpriseType
 import com.example.ioasysmvvm.model.repository.MainRepository
 
 class EnterpriseRepositoryImpl(private val enterpriseService: EnterpriseService) : MainRepository {

@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 import kotlin.coroutines.CoroutineContext
-import com.example.ioasysmvvm.model.domains.Result
+import com.example.ioasysmvvm.model.domains.result.Result
 
 
 class LoginViewModel(

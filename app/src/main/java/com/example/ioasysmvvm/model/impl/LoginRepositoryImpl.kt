@@ -2,7 +2,7 @@ package com.example.ioasysmvvm.model.impl
 
 import com.example.ioasysmvvm.model.api.LoginService
 import com.example.ioasysmvvm.model.constants.Constants
-import com.example.ioasysmvvm.model.domains.Result
+import com.example.ioasysmvvm.model.domains.result.Result
 import com.example.ioasysmvvm.model.domains.user.UserTokens
 import com.example.ioasysmvvm.model.domains.user.User
 import com.example.ioasysmvvm.model.domains.user.UserRequest
