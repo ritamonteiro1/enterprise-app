@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/enterpriseListToolBar">
 
         <TextView
-            android:id="@+id/enterpriseListInformationTextView"
+            android:id="@+id/enterpriseListTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -65,24 +65,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_enterprise" />
-
-        <TextView
-            android:id="@+id/enterpriseListInformationNoResultTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="20dp"
-            android:gravity="center"
-            android:text="@string/empty_list_error_message"
-            android:textColor="@color/charcoal_grey"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enterpriseListInformationTextView"
-            tools:visibility="visible" />
 
         <ProgressBar
             android:id="@+id/enterpriseListProgressBar"

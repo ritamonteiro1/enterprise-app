@@ -15,7 +15,6 @@ import com.example.ioasysmvvm.domain.exception.EmptyEnterpriseListException
 import com.example.ioasysmvvm.domain.exception.NetworkErrorException
 import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 import com.example.ioasysmvvm.extensions.showErrorDialog
-import com.example.ioasysmvvm.presentation.click_listener.OnItemClickListener
 import com.example.ioasysmvvm.presentation.enterprise.enterprise_details.EnterpriseDetailsActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -59,16 +58,10 @@ class EnterpriseListActivity : AppCompatActivity() {
 
     private fun setupObservers() {
         viewModel.enterpriseList.observe(this) { enterpriseList ->
-            binding.enterpriseListInformationTextView.visibility = View.GONE
-            binding.enterpriseListInformationNoResultTextView.visibility = View.GONE
+            binding.enterpriseListTextView.visibility = View.GONE
             binding.enterpriseListRecyclerView.visibility = View.VISIBLE
             val enterpriseListAdapter = setupEnterpriseListAdapter(enterpriseList)
             setupRecyclerView(enterpriseListAdapter)
-        }
-        viewModel.emptyQuerySearchMessage.observe(this) { isEmptyQuerySearch ->
-            binding.enterpriseListRecyclerView.visibility = View.GONE
-            binding.enterpriseListInformationNoResultTextView.visibility = View.GONE
-            binding.enterpriseListInformationTextView.isVisible = isEmptyQuerySearch
         }
         viewModel.loading.observe(this) { isLoading ->
             binding.enterpriseListProgressBar.isVisible = isLoading
@@ -77,8 +70,9 @@ class EnterpriseListActivity : AppCompatActivity() {
             when (exception) {
                 is EmptyEnterpriseListException -> {
                     binding.enterpriseListRecyclerView.visibility = View.GONE
-                    binding.enterpriseListInformationTextView.visibility = View.GONE
-                    binding.enterpriseListInformationNoResultTextView.visibility = View.VISIBLE
+                    binding.enterpriseListTextView.text =
+                        getString(R.string.empty_list_error_message)
+                    binding.enterpriseListTextView.visibility = View.VISIBLE
                 }
                 else -> {
                     val errorMessage = when (exception) {
@@ -92,16 +86,12 @@ class EnterpriseListActivity : AppCompatActivity() {
     }
 
     private fun setupEnterpriseListAdapter(enterpriseList: List<Enterprise>): EnterpriseListAdapter {
-        return EnterpriseListAdapter(
-            enterpriseList,
-            object : OnItemClickListener<Enterprise> {
-                override fun onClick(item: Enterprise) {
-                    val intent =
-                        Intent(this@EnterpriseListActivity, EnterpriseDetailsActivity::class.java)
-                    intent.putExtra(Constants.ENTERPRISE_DETAILS, item)
-                    startActivity(intent)
-                }
-            })
+        return EnterpriseListAdapter(enterpriseList) { enterprise ->
+            val intent =
+                Intent(this@EnterpriseListActivity, EnterpriseDetailsActivity::class.java)
+            intent.putExtra(Constants.ENTERPRISE_DETAILS, enterprise)
+            startActivity(intent)
+        }
     }
 
     private fun setupRecyclerView(enterpriseListAdapter: EnterpriseListAdapter) {

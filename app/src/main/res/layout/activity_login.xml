@@ -83,7 +83,7 @@
                 android:inputType="textEmailAddress"
                 android:letterSpacing="-0.01"
                 android:lineSpacingExtra="3.5sp"
-                android:textColor="@color/grey"
+                android:textColor="@color/charcoal_grey_two"
                 android:textSize="17sp"
                 android:textStyle="normal" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -114,7 +114,7 @@
                 android:inputType="numberPassword"
                 android:letterSpacing="-0.01"
                 android:lineSpacingExtra="3.5sp"
-                android:textColor="@color/grey"
+                android:textColor="@color/charcoal_grey_two"
                 android:textSize="17sp"
                 android:textStyle="normal"
                 app:textInputLayoutFocusedRectEnabled="false" />

@@ -17,9 +17,6 @@ suspend fun <T> retrofitWrapper(
     } catch (ioException: IOException) {
         Result.Error(NetworkErrorException())
     } catch (httpException: HttpException) {
-        if(httpException.code() == HttpsURLConnection.HTTP_UNAUTHORIZED){
-            Result.Error(UnauthorizedException())
-        }
         Result.Error(ServerErrorException())
     } catch (throwable: Throwable) {
         Result.Error(GenericErrorException())

@@ -10,11 +10,10 @@ import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.constants.Constants
 import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 import com.example.ioasysmvvm.extensions.downloadImage
-import com.example.ioasysmvvm.presentation.click_listener.OnItemClickListener
 
 class EnterpriseListAdapter(
     private val enterprises: List<Enterprise>,
-    private val onItemClickListener: OnItemClickListener<Enterprise>
+    private val onItemClickListener: (Enterprise) -> Unit
 ) : RecyclerView.Adapter<EnterpriseListAdapter.EnterpriseListViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -48,7 +47,7 @@ class EnterpriseListAdapter(
 
         fun bind(
             enterprise: Enterprise,
-            onItemClickListener: OnItemClickListener<Enterprise>
+            onItemClickListener: (Enterprise) -> Unit
         ) {
             itemEnterpriseCountryTextView.text = enterprise.country
             itemEnterpriseTypeTextView.text =
@@ -57,7 +56,7 @@ class EnterpriseListAdapter(
             itemEnterpriseImageView.downloadImage(
                 Constants.BASE_IMAGE_URL + enterprise.photo
             )
-            itemView.setOnClickListener { onItemClickListener.onClick(enterprise) }
+            itemView.setOnClickListener { onItemClickListener.invoke(enterprise) }
         }
     }
 }

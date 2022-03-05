@@ -13,11 +13,12 @@ class GetEnterpriseListImpl(private val enterpriseRepository: EnterpriseReposito
         client: String,
         uid: String
     ): Result<List<Enterprise>> {
-        val enterpriseList =
+        val result =
             enterpriseRepository.getEnterpriseList(enterpriseName, accessToken, client, uid)
-        if (enterpriseList == emptyList<Result<List<Enterprise>>>()) {
-            throw EmptyEnterpriseListException()
+        return if (result is Result.Success && result.data.isEmpty()) {
+            Result.Error(EmptyEnterpriseListException())
+        } else {
+            result
         }
-        return enterpriseList
     }
 }
