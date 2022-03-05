@@ -1,7 +1,7 @@
-package com.example.ioasysmvvm.data.repository
+package com.example.ioasysmvvm.domain.repository.enterprise
 
-import com.example.ioasysmvvm.domain.result.Result
-import com.example.ioasysmvvm.domain.enterprise.Enterprise
+import com.example.ioasysmvvm.domain.model.result.Result
+import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 
 interface EnterpriseRepository {
     suspend fun getEnterpriseList(

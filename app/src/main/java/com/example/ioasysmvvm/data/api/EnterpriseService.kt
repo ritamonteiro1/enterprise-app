@@ -1,7 +1,7 @@
 package com.example.ioasysmvvm.data.api
 
 import com.example.ioasysmvvm.constants.Constants
-import com.example.ioasysmvvm.data.model.EnterpriseListResponse
+import com.example.ioasysmvvm.data.remote.enterprise.model.EnterpriseListResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query

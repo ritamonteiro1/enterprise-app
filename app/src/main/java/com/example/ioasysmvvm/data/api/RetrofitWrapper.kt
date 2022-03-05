@@ -1,9 +1,9 @@
 package com.example.ioasysmvvm.data.api
 
-import com.example.ioasysmvvm.domain.result.Result
-import com.example.ioasysmvvm.domain.errors.ErrorMessageEnum
-import com.example.ioasysmvvm.domain.errors.GenericError
-import com.example.ioasysmvvm.domain.errors.ServerError
+import com.example.ioasysmvvm.domain.model.result.Result
+import com.example.ioasysmvvm.domain.exception.ErrorMessageEnum
+import com.example.ioasysmvvm.domain.exception.GenericError
+import com.example.ioasysmvvm.domain.exception.ServerError
 import retrofit2.HttpException
 import java.io.IOException
 

@@ -1,4 +1,4 @@
-package com.example.ioasysmvvm.presentation.enterprise
+package com.example.ioasysmvvm.presentation.enterprise.enterprise_list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.constants.Constants
-import com.example.ioasysmvvm.domain.enterprise.Enterprise
+import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 import com.example.ioasysmvvm.extensions.downloadImage
-import com.example.ioasysmvvm.presentation.click.listener.OnItemClickListener
+import com.example.ioasysmvvm.presentation.click_listener.OnItemClickListener
 
 class EnterpriseListAdapter(
     private val enterprises: List<Enterprise>,

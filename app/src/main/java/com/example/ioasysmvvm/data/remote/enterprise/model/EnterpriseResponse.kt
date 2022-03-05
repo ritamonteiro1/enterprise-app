@@ -1,4 +1,4 @@
-package com.example.ioasysmvvm.data.model
+package com.example.ioasysmvvm.data.remote.enterprise.model
 
 import com.google.gson.annotations.SerializedName
 

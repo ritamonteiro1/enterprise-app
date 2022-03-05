@@ -1,7 +1,7 @@
-package com.example.ioasysmvvm.data.model
+package com.example.ioasysmvvm.data.remote.enterprise.model
 
-import com.example.ioasysmvvm.domain.enterprise.Enterprise
-import com.example.ioasysmvvm.domain.enterprise.EnterpriseType
+import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
+import com.example.ioasysmvvm.domain.model.enterprise.EnterpriseType
 
 data class EnterpriseListResponse(val enterprises: List<EnterpriseResponse>?) {
     fun mapToEnterpriseListModel() =

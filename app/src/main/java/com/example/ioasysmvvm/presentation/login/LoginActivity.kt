@@ -6,11 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.databinding.ActivityLoginBinding
 import com.example.ioasysmvvm.constants.Constants
-import com.example.ioasysmvvm.domain.errors.LoginError
-import com.example.ioasysmvvm.domain.user.EmailStatus
+import com.example.ioasysmvvm.domain.exception.LoginError
+import com.example.ioasysmvvm.domain.model.user.EmailStatus
 import com.example.ioasysmvvm.extensions.createLoadingDialog
 import com.example.ioasysmvvm.extensions.showErrorDialog
-import com.example.ioasysmvvm.presentation.enterprise.EnterpriseListActivity
+import com.example.ioasysmvvm.presentation.enterprise.enterprise_list.EnterpriseListActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {

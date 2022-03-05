@@ -1,7 +1,7 @@
 package com.example.ioasysmvvm.data.api
 
 
-import com.example.ioasysmvvm.data.model.UserRequest
+import com.example.ioasysmvvm.data.remote.login.model.UserRequest
 import okhttp3.ResponseBody
 import retrofit2.Response
 

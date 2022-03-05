@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ioasys">
-        <activity android:name=".presentation.enterprise.EnterpriseDetailsActivity" />
-        <activity android:name=".presentation.enterprise.EnterpriseListActivity" />
+        <activity android:name=".presentation.enterprise.enterprise_details.EnterpriseDetailsActivity" />
+        <activity android:name=".presentation.enterprise.enterprise_list.EnterpriseListActivity" />
         <activity
             android:name=".presentation.login.LoginActivity"
             android:exported="true">

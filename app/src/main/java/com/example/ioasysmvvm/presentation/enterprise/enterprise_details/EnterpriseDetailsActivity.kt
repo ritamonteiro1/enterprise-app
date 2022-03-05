@@ -1,4 +1,4 @@
-package com.example.ioasysmvvm.presentation.enterprise
+package com.example.ioasysmvvm.presentation.enterprise.enterprise_details
 
 import android.app.Dialog
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ioasysmvvm.constants.Constants
 import com.example.ioasysmvvm.databinding.ActivityEnterpriseDetailsBinding
-import com.example.ioasysmvvm.domain.enterprise.Enterprise
+import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 import com.example.ioasysmvvm.extensions.createLoadingDialog
 import com.example.ioasysmvvm.extensions.downloadImage
 

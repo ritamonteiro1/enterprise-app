@@ -1,4 +1,4 @@
-package com.example.ioasysmvvm.domain.user
+package com.example.ioasysmvvm.domain.model.user
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

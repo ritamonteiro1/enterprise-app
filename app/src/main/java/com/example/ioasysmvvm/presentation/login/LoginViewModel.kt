@@ -4,15 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ioasysmvvm.domain.user.UserTokens
-import com.example.ioasysmvvm.domain.user.EmailStatus
-import com.example.ioasysmvvm.domain.user.User
-import com.example.ioasysmvvm.data.repository.LoginRepository
+import com.example.ioasysmvvm.domain.model.user.UserTokens
+import com.example.ioasysmvvm.domain.model.user.EmailStatus
+import com.example.ioasysmvvm.domain.model.user.User
+import com.example.ioasysmvvm.domain.repository.login.LoginRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 import kotlin.coroutines.CoroutineContext
-import com.example.ioasysmvvm.domain.result.Result
+import com.example.ioasysmvvm.domain.model.result.Result
 
 
 class LoginViewModel(

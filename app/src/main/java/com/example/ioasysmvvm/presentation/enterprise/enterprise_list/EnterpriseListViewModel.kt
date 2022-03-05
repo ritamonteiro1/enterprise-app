@@ -1,12 +1,12 @@
-package com.example.ioasysmvvm.presentation.enterprise
+package com.example.ioasysmvvm.presentation.enterprise.enterprise_list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ioasysmvvm.data.repository.EnterpriseRepository
-import com.example.ioasysmvvm.domain.enterprise.Enterprise
-import com.example.ioasysmvvm.domain.result.Result
+import com.example.ioasysmvvm.domain.repository.enterprise.EnterpriseRepository
+import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
+import com.example.ioasysmvvm.domain.model.result.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext

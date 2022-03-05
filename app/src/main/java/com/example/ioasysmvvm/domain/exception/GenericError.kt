@@ -1,4 +1,4 @@
-package com.example.ioasysmvvm.domain.errors
+package com.example.ioasysmvvm.domain.exception
 
 import retrofit2.HttpException
 

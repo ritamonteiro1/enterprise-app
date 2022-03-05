@@ -1,12 +1,13 @@
-package com.example.ioasysmvvm.data.repository
+package com.example.ioasysmvvm.data.repository.login
 
 import com.example.ioasysmvvm.constants.Constants
 import com.example.ioasysmvvm.data.api.LoginService
 import com.example.ioasysmvvm.data.api.retrofitWrapper
-import com.example.ioasysmvvm.data.model.UserRequest
-import com.example.ioasysmvvm.domain.result.Result
-import com.example.ioasysmvvm.domain.user.User
-import com.example.ioasysmvvm.domain.user.UserTokens
+import com.example.ioasysmvvm.data.remote.login.model.UserRequest
+import com.example.ioasysmvvm.domain.repository.login.LoginRepository
+import com.example.ioasysmvvm.domain.model.result.Result
+import com.example.ioasysmvvm.domain.model.user.User
+import com.example.ioasysmvvm.domain.model.user.UserTokens
 
 class LoginRepositoryImpl(private val loginService: LoginService) : LoginRepository {
     override suspend fun doLogin(user: User): Result<UserTokens> {

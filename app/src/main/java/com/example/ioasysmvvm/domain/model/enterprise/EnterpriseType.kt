@@ -1,4 +1,4 @@
-package com.example.ioasysmvvm.domain.enterprise
+package com.example.ioasysmvvm.domain.model.enterprise
 
 import java.io.Serializable
 

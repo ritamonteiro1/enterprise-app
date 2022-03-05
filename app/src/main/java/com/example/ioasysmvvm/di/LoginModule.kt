@@ -1,8 +1,8 @@
 package com.example.ioasysmvvm.di
 
 import com.example.ioasysmvvm.data.api.LoginService
-import com.example.ioasysmvvm.data.repository.LoginRepositoryImpl
-import com.example.ioasysmvvm.data.repository.LoginRepository
+import com.example.ioasysmvvm.data.repository.login.LoginRepositoryImpl
+import com.example.ioasysmvvm.domain.repository.login.LoginRepository
 import com.example.ioasysmvvm.presentation.login.LoginViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

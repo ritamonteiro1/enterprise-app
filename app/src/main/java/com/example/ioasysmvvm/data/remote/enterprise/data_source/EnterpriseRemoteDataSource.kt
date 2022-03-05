@@ -1,7 +1,7 @@
-package com.example.ioasysmvvm.data.data.source
+package com.example.ioasysmvvm.data.remote.enterprise.data_source
 
-import com.example.ioasysmvvm.domain.result.Result
-import com.example.ioasysmvvm.domain.enterprise.Enterprise
+import com.example.ioasysmvvm.domain.model.result.Result
+import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 
 interface EnterpriseRemoteDataSource {
     suspend fun getEnterpriseList(

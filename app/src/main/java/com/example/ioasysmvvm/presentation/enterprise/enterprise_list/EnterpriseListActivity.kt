@@ -1,4 +1,4 @@
-package com.example.ioasysmvvm.presentation.enterprise
+package com.example.ioasysmvvm.presentation.enterprise.enterprise_list
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.constants.Constants
 import com.example.ioasysmvvm.databinding.ActivityEnterpriseListBinding
-import com.example.ioasysmvvm.domain.enterprise.Enterprise
+import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 import com.example.ioasysmvvm.extensions.showErrorDialog
-import com.example.ioasysmvvm.presentation.click.listener.OnItemClickListener
+import com.example.ioasysmvvm.presentation.click_listener.OnItemClickListener
+import com.example.ioasysmvvm.presentation.enterprise.enterprise_details.EnterpriseDetailsActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EnterpriseListActivity : AppCompatActivity() {

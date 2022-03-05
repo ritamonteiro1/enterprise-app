@@ -1,9 +1,9 @@
-package com.example.ioasysmvvm.data.repository
+package com.example.ioasysmvvm.data.repository.enterprise
 
-import com.example.ioasysmvvm.domain.enterprise.Enterprise
-import com.example.ioasysmvvm.domain.result.Result
-import com.example.ioasysmvvm.data.data.source.EnterpriseRemoteDataSource
-import com.example.ioasysmvvm.data.repository.EnterpriseRepository
+import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
+import com.example.ioasysmvvm.domain.model.result.Result
+import com.example.ioasysmvvm.data.remote.enterprise.data_source.EnterpriseRemoteDataSource
+import com.example.ioasysmvvm.domain.repository.enterprise.EnterpriseRepository
 
 class EnterpriseRepositoryImpl(private val enterpriseRemoteDataSource: EnterpriseRemoteDataSource) :
     EnterpriseRepository {
