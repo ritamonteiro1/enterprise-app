@@ -33,7 +33,7 @@ class EnterpriseListActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu, menu)
         val menuItem = menu?.findItem(R.id.search)
         val searchView: SearchView = menuItem?.actionView as SearchView
-        searchView.queryHint = getString(R.string.main_query_hint_menu_search)
+        searchView.queryHint = getString(R.string.enterprise_list_query_hint_menu_search)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -57,16 +57,16 @@ class EnterpriseListActivity : AppCompatActivity() {
 
     private fun setupObservers() {
         viewModel.enterpriseList.observe(this) {
-            binding.mainInformationNoResultTextView.visibility = View.GONE
-            binding.mainRecyclerView.visibility = View.VISIBLE
+            binding.enterpriseListInformationNoResultTextView.visibility = View.GONE
+            binding.enterpriseListRecyclerView.visibility = View.VISIBLE
             val enterpriseListAdapter = setupEnterpriseListAdapter(it)
             setupRecyclerView(enterpriseListAdapter)
         }
         viewModel.emptyListMessage.observe(this) {
-            binding.mainInformationTextView.isVisible = it
+            binding.enterpriseListInformationTextView.isVisible = it
         }
         viewModel.loading.observe(this) {
-            binding.mainProgressBar.isVisible = it
+            binding.enterpriseListProgressBar.isVisible = it
         }
         viewModel.error.observe(this) {
             showErrorDialog(it.message.orEmpty())
@@ -87,15 +87,15 @@ class EnterpriseListActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView(enterpriseListAdapter: EnterpriseListAdapter) {
-        binding.mainRecyclerView.adapter = enterpriseListAdapter
+        binding.enterpriseListRecyclerView.adapter = enterpriseListAdapter
         val layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.VERTICAL, false
         )
-        binding.mainRecyclerView.layoutManager = layoutManager
+        binding.enterpriseListRecyclerView.layoutManager = layoutManager
     }
 
     private fun setupToolBar() {
-        setSupportActionBar(binding.mainToolBar)
+        setSupportActionBar(binding.enterpriseListToolBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 }

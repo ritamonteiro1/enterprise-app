@@ -74,13 +74,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun handleInvalidPassword(isValidPassword: PasswordStatus) {
-        if (isValidPassword == PasswordStatus.VALID) {
-            binding.loginPasswordTextInputLayout.error = Constants.EMPTY
-        } else if (isValidPassword == PasswordStatus.EMPTY) {
-            binding.loginPasswordTextInputLayout.error = getString(R.string.fill_the_field)
-        } else {
-            binding.loginPasswordTextInputLayout.error =
-                "A senha deve conter pelo menos 8 caracteres"
+        when (isValidPassword) {
+            PasswordStatus.VALID -> {
+                binding.loginPasswordTextInputLayout.error = Constants.EMPTY
+            }
+            PasswordStatus.EMPTY -> {
+                binding.loginPasswordTextInputLayout.error = getString(R.string.fill_the_field)
+            }
+            else -> {
+                binding.loginPasswordTextInputLayout.error = getString(R.string.invalid_password)
+            }
         }
     }
 

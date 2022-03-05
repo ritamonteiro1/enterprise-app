@@ -26,10 +26,10 @@ class EnterpriseDetailsActivity : AppCompatActivity() {
 
     private fun showEnterpriseDetails(enterprise: Enterprise) {
         loadingDialog.dismiss()
-        resultViewBinding.resultEnterpriseImageView.downloadImage(
+        resultViewBinding.enterpriseDetailsImageView.downloadImage(
             Constants.BASE_IMAGE_URL + enterprise.photo
         )
-        resultViewBinding.resultDescriptionEnterpriseTextView.text = enterprise.description
+        resultViewBinding.enterpriseDetailsTextView.text = enterprise.description
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -41,7 +41,7 @@ class EnterpriseDetailsActivity : AppCompatActivity() {
     }
 
     private fun setupToolBar(enterpriseName: String) {
-        setSupportActionBar(resultViewBinding.resultToolBar)
+        setSupportActionBar(resultViewBinding.enterpriseDetailsToolBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = enterpriseName
     }

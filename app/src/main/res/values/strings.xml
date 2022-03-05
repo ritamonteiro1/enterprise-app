@@ -3,8 +3,11 @@
     <string name="app_name">Empresas</string>
     <!--    LoginActivity-->
     <string name="login_error_email_password">Credenciais inválidas. Tente novamente.</string>
-    <!--    MainActivity-->
-    <string name="main_query_hint_menu_search">Pesquisar</string>
+    <string name="incorrect_email">Preencha o campo no formato de E-mail. Ex: abc@abc.com.br</string>
+    <string name="invalid_password"> A senha deve conter pelo menos 8 caracteres</string>
+    <string name="fill_the_field">Preencha o campo</string>
+    <!--    EnterpriseListActivity-->
+    <string name="enterprise_list_query_hint_menu_search">Pesquisar</string>
     <!--    activity_login.xml-->
     <string name="login_logo_content_description">Logotipo da Ioasys</string>
     <string name="login_welcome_content_description">Bem-vindo ao Empresas</string>
@@ -13,9 +16,9 @@
     <string name="login_password_text_hint">Senha</string>
     <string name="login_button_text">Entrar</string>
     <!--    activity_enterprise_list.xml-->
-    <string name="main_information_text">Clique na busca para iniciar.</string>
-    <!--    activity_result.xml-->
-    <string name="result_enterprise_image">Imagem da empresa</string>
+    <string name="enterprise_list_information_text">Clique na busca para iniciar.</string>
+    <!--    activity_enterprise_details.xml-->
+    <string name="enterprise_details_enterprise_image">Imagem da empresa</string>
     <!--    item_enterprise.xml-->
     <string name="img_enterprise">Imagem da Empresa</string>
     <!--    menu.xml-->
@@ -23,8 +26,6 @@
     <!--    Extensions -->
     <string name="alert_dialog_text">OK</string>
     <!--    Generics Error -->
-    <string name="fill_the_field">Preencha o campo</string>
-    <string name="incorrect_email">Preencha o campo no formato de E-mail. Ex: abc@abc.com.br</string>
     <string name="error_connection_fail">Falha na conexão com a internet, tente novamente.</string>
     <string name="occurred_error">Ocorreu um erro. Tente novamente mais tarde.</string>
     <string name="empty_list_error_message">Não foram encontrados resultados para esta pesquisa.</string>
