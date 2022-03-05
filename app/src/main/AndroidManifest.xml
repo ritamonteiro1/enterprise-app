@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ioasys">
         <activity android:name=".presentation.enterprise.EnterpriseDetailsActivity" />
-        <activity android:name=".presentation.enterprise.MainActivity" />
+        <activity android:name=".presentation.enterprise.EnterpriseListActivity" />
         <activity
             android:name=".presentation.login.LoginActivity"
             android:exported="true">

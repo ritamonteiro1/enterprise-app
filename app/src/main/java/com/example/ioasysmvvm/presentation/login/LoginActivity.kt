@@ -10,7 +10,7 @@ import com.example.ioasysmvvm.domain.errors.LoginError
 import com.example.ioasysmvvm.domain.user.EmailStatus
 import com.example.ioasysmvvm.extensions.createLoadingDialog
 import com.example.ioasysmvvm.extensions.showErrorDialog
-import com.example.ioasysmvvm.presentation.enterprise.MainActivity
+import com.example.ioasysmvvm.presentation.enterprise.EnterpriseListActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun moveToMainActivity(accessToken: String, uid: String, client: String) {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, EnterpriseListActivity::class.java)
         intent.putExtra(Constants.HEADER_ACCESS_TOKEN, accessToken)
         intent.putExtra(Constants.HEADER_UID, uid)
         intent.putExtra(Constants.HEADER_CLIENT, client)

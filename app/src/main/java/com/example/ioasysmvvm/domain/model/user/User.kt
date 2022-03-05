@@ -2,7 +2,7 @@ package com.example.ioasysmvvm.domain.user
 
 import com.example.ioasysmvvm.extensions.isValidEmail
 
-data class User(val email: String, val password: String){
+data class User(val email: String, val password: String) {
     fun isValidEmail(): EmailStatus {
         return when {
             email.isValidEmail() -> {

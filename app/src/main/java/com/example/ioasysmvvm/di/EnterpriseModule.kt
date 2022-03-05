@@ -5,7 +5,7 @@ import com.example.ioasysmvvm.data.data.source.EnterpriseRemoteDataSource
 import com.example.ioasysmvvm.data.data.source.EnterpriseRemoteDataSourceImpl
 import com.example.ioasysmvvm.data.repository.EnterpriseRepository
 import com.example.ioasysmvvm.data.repository.EnterpriseRepositoryImpl
-import com.example.ioasysmvvm.presentation.enterprise.MainViewModel
+import com.example.ioasysmvvm.presentation.enterprise.EnterpriseListViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -13,7 +13,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-val mainModule = module {
+val enterpriseModule = module {
     single<EnterpriseService> {
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -36,5 +36,5 @@ val mainModule = module {
         EnterpriseRemoteDataSourceImpl(get())
     }
 
-    viewModel { MainViewModel(get()) }
+    viewModel { EnterpriseListViewModel(get()) }
 }

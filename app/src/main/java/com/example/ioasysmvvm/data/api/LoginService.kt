@@ -1,9 +1,8 @@
-package com.example.ioasysmvvm.model.api
+package com.example.ioasysmvvm.data.api
 
 
-import com.example.ioasysmvvm.model.domains.user.UserRequest
+import com.example.ioasysmvvm.data.model.UserRequest
 import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.Response
 
 import retrofit2.http.*

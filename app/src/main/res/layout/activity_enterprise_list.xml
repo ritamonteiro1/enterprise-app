@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainConstraintLayout"
     android:layout_width="match_parent"
-    android:background="@color/beige"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/beige">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolBar"
@@ -16,19 +16,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:layout_width="wrap_content"
-            android:maxWidth="120dp"
-            android:importantForAccessibility="no"
-            android:scaleType="centerInside"
             android:layout_height="28dp"
-            android:src="@drawable/img_logo_nav"/>
+            android:importantForAccessibility="no"
+            android:maxWidth="120dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_logo_nav" />
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/beige"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainToolBar">
 

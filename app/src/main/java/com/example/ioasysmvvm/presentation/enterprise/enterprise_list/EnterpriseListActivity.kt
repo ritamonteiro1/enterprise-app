@@ -10,19 +10,19 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.constants.Constants
-import com.example.ioasysmvvm.databinding.ActivityMainBinding
+import com.example.ioasysmvvm.databinding.ActivityEnterpriseListBinding
 import com.example.ioasysmvvm.domain.enterprise.Enterprise
 import com.example.ioasysmvvm.extensions.showErrorDialog
 import com.example.ioasysmvvm.presentation.click.listener.OnItemClickListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
-    private val viewModel: MainViewModel by viewModel()
-    private lateinit var binding: ActivityMainBinding
+class EnterpriseListActivity : AppCompatActivity() {
+    private val viewModel: EnterpriseListViewModel by viewModel()
+    private lateinit var binding: ActivityEnterpriseListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityEnterpriseListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupObservers()
         setupToolBar()
@@ -77,7 +77,8 @@ class MainActivity : AppCompatActivity() {
             enterpriseList,
             object : OnItemClickListener<Enterprise> {
                 override fun onClick(item: Enterprise) {
-                    val intent = Intent(this@MainActivity, EnterpriseDetailsActivity::class.java)
+                    val intent =
+                        Intent(this@EnterpriseListActivity, EnterpriseDetailsActivity::class.java)
                     intent.putExtra(Constants.ENTERPRISE_DETAILS, item)
                     startActivity(intent)
                 }

@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class MainViewModel(
+class EnterpriseListViewModel(
     private val enterpriseRepository: EnterpriseRepository,
     private val dispatcher: CoroutineContext = Dispatchers.IO
 ) : ViewModel() {

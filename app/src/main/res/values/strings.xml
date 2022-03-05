@@ -12,7 +12,7 @@
     <string name="login_email_text_hint">E-mail</string>
     <string name="login_password_text_hint">Senha</string>
     <string name="login_button_text">Entrar</string>
-    <!--    activity_main.xml-->
+    <!--    activity_enterprise_list.xml-->
     <string name="main_information_text">Clique na busca para iniciar.</string>
     <!--    activity_result.xml-->
     <string name="result_enterprise_image">Imagem da empresa</string>

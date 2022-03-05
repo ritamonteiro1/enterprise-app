@@ -1,7 +1,7 @@
-package com.example.ioasysmvvm.model.api
+package com.example.ioasysmvvm.data.api
 
-import com.example.ioasysmvvm.model.constants.Constants
-import com.example.ioasysmvvm.model.domains.enterprise.EnterpriseListResponse
+import com.example.ioasysmvvm.constants.Constants
+import com.example.ioasysmvvm.data.model.EnterpriseListResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface EnterpriseService {
 
     @GET("enterprises")
-    suspend fun recoverEnterpriseListResponse(
+    suspend fun getEnterpriseListResponse(
         @Query(Constants.ENTERPRISE_NAME) enterpriseName: String,
         @Header("access-token") accessToken: String,
         @Header("client") client: String,
