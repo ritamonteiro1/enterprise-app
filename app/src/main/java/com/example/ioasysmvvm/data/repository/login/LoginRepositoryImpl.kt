@@ -1,29 +1,14 @@
 package com.example.ioasysmvvm.data.repository.login
 
-import com.example.ioasysmvvm.constants.Constants
-import com.example.ioasysmvvm.data.api.LoginService
-import com.example.ioasysmvvm.data.api.retrofitWrapper
-import com.example.ioasysmvvm.data.remote.login.model.UserRequest
-import com.example.ioasysmvvm.domain.repository.login.LoginRepository
+import com.example.ioasysmvvm.data.remote.login.data_source.LoginRemoteDataSource
 import com.example.ioasysmvvm.domain.model.result.Result
 import com.example.ioasysmvvm.domain.model.user.User
 import com.example.ioasysmvvm.domain.model.user.UserTokens
+import com.example.ioasysmvvm.domain.repository.login.LoginRepository
 
-class LoginRepositoryImpl(private val loginService: LoginService) : LoginRepository {
+class LoginRepositoryImpl(private val loginRemoteDataSource: LoginRemoteDataSource) :
+    LoginRepository {
     override suspend fun doLogin(user: User): Result<UserTokens> {
-        val userRequest = UserRequest(user.email, user.password)
-
-        return when (val result = retrofitWrapper { loginService.doLogin(userRequest) }) {
-            is Result.Success -> {
-                Result.Success(
-                    UserTokens(
-                        accessToken = result.data.headers()[Constants.HEADER_ACCESS_TOKEN].orEmpty(),
-                        uid = result.data.headers()[Constants.HEADER_UID].orEmpty(),
-                        client = result.data.headers()[Constants.HEADER_CLIENT].orEmpty()
-                    )
-                )
-            }
-            is Result.Error -> result
-        }
+        return loginRemoteDataSource.doLogin(user)
     }
 }

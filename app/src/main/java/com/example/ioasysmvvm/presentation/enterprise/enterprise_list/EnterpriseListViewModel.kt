@@ -4,15 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ioasysmvvm.domain.repository.enterprise.EnterpriseRepository
 import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 import com.example.ioasysmvvm.domain.model.result.Result
+import com.example.ioasysmvvm.domain.use_case.GetEnterpriseList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class EnterpriseListViewModel(
-    private val enterpriseRepository: EnterpriseRepository,
+    private val getEnterpriseList: GetEnterpriseList,
     private val dispatcher: CoroutineContext = Dispatchers.IO
 ) : ViewModel() {
     private val _enterpriseList = MutableLiveData<List<Enterprise>>()
@@ -33,7 +33,7 @@ class EnterpriseListViewModel(
         viewModelScope.launch(dispatcher) {
             _emptyListMessage.postValue(enterpriseName.isBlank())
             _loading.postValue(true)
-            val result = enterpriseRepository.getEnterpriseList(
+            val result = getEnterpriseList.call(
                 enterpriseName,
                 accessToken,
                 client,

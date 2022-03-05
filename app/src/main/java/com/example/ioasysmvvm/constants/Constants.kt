@@ -10,5 +10,6 @@ class Constants {
         const val HEADER_ACCESS_TOKEN = "access-token"
         const val HEADER_CLIENT = "client"
         const val HEADER_UID = "uid"
+        const val BASE_URL = "https://empresas.ioasys.com.br/api/v1/"
     }
 }

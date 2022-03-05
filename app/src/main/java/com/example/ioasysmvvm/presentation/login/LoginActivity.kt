@@ -4,10 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ioasysmvvm.R
-import com.example.ioasysmvvm.databinding.ActivityLoginBinding
 import com.example.ioasysmvvm.constants.Constants
+import com.example.ioasysmvvm.databinding.ActivityLoginBinding
 import com.example.ioasysmvvm.domain.exception.LoginError
 import com.example.ioasysmvvm.domain.model.user.EmailStatus
+import com.example.ioasysmvvm.domain.model.user.PasswordStatus
 import com.example.ioasysmvvm.extensions.createLoadingDialog
 import com.example.ioasysmvvm.extensions.showErrorDialog
 import com.example.ioasysmvvm.presentation.enterprise.enterprise_list.EnterpriseListActivity
@@ -72,11 +73,14 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun handleInvalidPassword(isValidPassword: Boolean) {
-        if (isValidPassword) {
+    private fun handleInvalidPassword(isValidPassword: PasswordStatus) {
+        if (isValidPassword == PasswordStatus.VALID) {
             binding.loginPasswordTextInputLayout.error = Constants.EMPTY
-        } else {
+        } else if (isValidPassword == PasswordStatus.EMPTY) {
             binding.loginPasswordTextInputLayout.error = getString(R.string.fill_the_field)
+        } else {
+            binding.loginPasswordTextInputLayout.error =
+                "A senha deve conter pelo menos 8 caracteres"
         }
     }
 
