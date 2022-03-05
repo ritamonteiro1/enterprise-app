@@ -17,8 +17,8 @@ class LoginRemoteDataSourceImpl(private val loginService: LoginService) : LoginR
                 Result.Success(
                     UserTokens(
                         accessToken = result.data.headers()[Constants.HEADER_ACCESS_TOKEN].orEmpty(),
+                        client = result.data.headers()[Constants.HEADER_CLIENT].orEmpty(),
                         uid = result.data.headers()[Constants.HEADER_UID].orEmpty(),
-                        client = result.data.headers()[Constants.HEADER_CLIENT].orEmpty()
                     )
                 )
             }

@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.constants.Constants
 import com.example.ioasysmvvm.databinding.ActivityLoginBinding
-import com.example.ioasysmvvm.domain.exception.LoginError
+import com.example.ioasysmvvm.domain.exception.NetworkErrorException
+import com.example.ioasysmvvm.domain.exception.UnauthorizedException
 import com.example.ioasysmvvm.domain.model.user.EmailStatus
 import com.example.ioasysmvvm.domain.model.user.PasswordStatus
 import com.example.ioasysmvvm.extensions.createLoadingDialog
@@ -37,24 +38,30 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        viewModel.isValidUserEmail.observe(this) {
-            handleInvalidEmail(it)
+        viewModel.isValidUserEmail.observe(this) { emailStatus ->
+            handleInvalidEmail(emailStatus)
         }
-        viewModel.isValidUserPassword.observe(this) {
-            handleInvalidPassword(it)
+        viewModel.isValidUserPassword.observe(this) { passwordStatus ->
+            handleInvalidPassword(passwordStatus)
         }
-        viewModel.loading.observe(this) {
-            if (it) loadingDialog.show()
+        viewModel.loading.observe(this) { isLoading ->
+            if (isLoading) loadingDialog.show()
             else loadingDialog.dismiss()
         }
-        viewModel.error.observe(this) {
-            when (it) {
-                is LoginError -> unauthorizedLogin()
-                else -> showErrorDialog(it.message.orEmpty())
+        viewModel.error.observe(this) { exception ->
+            when (exception) {
+                is UnauthorizedException -> unauthorizedLogin()
+                else -> {
+                    val errorMessage = when (exception) {
+                        is NetworkErrorException -> getString(R.string.error_connection_fail)
+                        else -> getString(R.string.occurred_error)
+                    }
+                    showErrorDialog(errorMessage)
+                }
             }
         }
-        viewModel.userTokens.observe(this) {
-            moveToMainActivity(it.accessToken, it.uid, it.client)
+        viewModel.userTokens.observe(this) { userTokens ->
+            moveToMainActivity(userTokens.accessToken, userTokens.uid, userTokens.client)
         }
     }
 

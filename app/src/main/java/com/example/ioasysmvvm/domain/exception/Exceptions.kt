@@ -1,7 +1,11 @@
 package com.example.ioasysmvvm.domain.exception
 
-class GenericError: Exception()
+class GenericErrorException: Exception()
 
-class LoginError : Exception()
+class UnauthorizedException : Exception()
 
-class ServerError: Exception()
+class ServerErrorException: Exception()
+
+class NetworkErrorException: Exception()
+
+class EmptyEnterpriseListException: Exception()

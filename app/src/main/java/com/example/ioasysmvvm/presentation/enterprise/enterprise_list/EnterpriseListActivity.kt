@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ioasysmvvm.R
 import com.example.ioasysmvvm.constants.Constants
 import com.example.ioasysmvvm.databinding.ActivityEnterpriseListBinding
+import com.example.ioasysmvvm.domain.exception.EmptyEnterpriseListException
+import com.example.ioasysmvvm.domain.exception.NetworkErrorException
 import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 import com.example.ioasysmvvm.extensions.showErrorDialog
 import com.example.ioasysmvvm.presentation.click_listener.OnItemClickListener
@@ -56,20 +58,36 @@ class EnterpriseListActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        viewModel.enterpriseList.observe(this) {
+        viewModel.enterpriseList.observe(this) { enterpriseList ->
+            binding.enterpriseListInformationTextView.visibility = View.GONE
             binding.enterpriseListInformationNoResultTextView.visibility = View.GONE
             binding.enterpriseListRecyclerView.visibility = View.VISIBLE
-            val enterpriseListAdapter = setupEnterpriseListAdapter(it)
+            val enterpriseListAdapter = setupEnterpriseListAdapter(enterpriseList)
             setupRecyclerView(enterpriseListAdapter)
         }
-        viewModel.emptyListMessage.observe(this) {
-            binding.enterpriseListInformationTextView.isVisible = it
+        viewModel.emptyQuerySearchMessage.observe(this) { isEmptyQuerySearch ->
+            binding.enterpriseListRecyclerView.visibility = View.GONE
+            binding.enterpriseListInformationNoResultTextView.visibility = View.GONE
+            binding.enterpriseListInformationTextView.isVisible = isEmptyQuerySearch
         }
-        viewModel.loading.observe(this) {
-            binding.enterpriseListProgressBar.isVisible = it
+        viewModel.loading.observe(this) { isLoading ->
+            binding.enterpriseListProgressBar.isVisible = isLoading
         }
-        viewModel.error.observe(this) {
-            showErrorDialog(it.message.orEmpty())
+        viewModel.error.observe(this) { exception ->
+            when (exception) {
+                is EmptyEnterpriseListException -> {
+                    binding.enterpriseListRecyclerView.visibility = View.GONE
+                    binding.enterpriseListInformationTextView.visibility = View.GONE
+                    binding.enterpriseListInformationNoResultTextView.visibility = View.VISIBLE
+                }
+                else -> {
+                    val errorMessage = when (exception) {
+                        is NetworkErrorException -> getString(R.string.error_connection_fail)
+                        else -> getString(R.string.occurred_error)
+                    }
+                    showErrorDialog(errorMessage)
+                }
+            }
         }
     }
 

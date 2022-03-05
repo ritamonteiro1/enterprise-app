@@ -21,8 +21,8 @@ class EnterpriseListViewModel(
     val error: LiveData<Throwable> = _error
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
-    private val _emptyListMessage = MutableLiveData<Boolean>()
-    val emptyListMessage: LiveData<Boolean> = _emptyListMessage
+    private val _emptyQuerySearchMessage = MutableLiveData<Boolean>()
+    val emptyQuerySearchMessage: LiveData<Boolean> = _emptyQuerySearchMessage
 
     fun getEnterpriseList(
         enterpriseName: String,
@@ -31,7 +31,7 @@ class EnterpriseListViewModel(
         uid: String
     ) {
         viewModelScope.launch(dispatcher) {
-            _emptyListMessage.postValue(enterpriseName.isBlank())
+            _emptyQuerySearchMessage.postValue(enterpriseName.isBlank())
             _loading.postValue(true)
             val result = getEnterpriseList.call(
                 enterpriseName,
