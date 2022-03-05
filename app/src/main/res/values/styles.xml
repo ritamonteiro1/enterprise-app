@@ -2,17 +2,16 @@
     <!-- Base application theme. -->
     <style name="Theme.Ioasys" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/medium_pink</item>
+        <item name="colorPrimaryVariant">@color/neon_red</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/medium_pink</item>
+        <item name="colorSecondaryVariant">@color/neon_red</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/black_3b</item>
-        <item name="android:navigationBarColor" tools:targetApi="l">#140C35</item>
-        <!-- Customize your theme here. -->
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/black_3b</item>
     </style>
 
     <style name="AppTheme.Toolbar" parent="Theme.Ioasys">

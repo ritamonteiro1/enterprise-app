@@ -4,69 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainConstraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/beige">
-
-    <TextView
-        android:id="@+id/mainInformationTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center_horizontal"
-        android:letterSpacing="-0.01"
-        android:lineSpacingExtra="3.5sp"
-        android:text="@string/main_information_text"
-        android:textColor="@color/charcoal_grey"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolBar" />
+    android:background="@color/beige"
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolBar"
         android:layout_width="0dp"
-        android:layout_height="55dp"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/medium_pink"
-        android:minHeight="?attr/actionBarSize"
         android:theme="@style/AppTheme.Toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:maxWidth="120dp"
+            android:importantForAccessibility="no"
+            android:scaleType="centerInside"
+            android:layout_height="28dp"
+            android:src="@drawable/img_logo_nav"/>
+    </androidx.appcompat.widget.Toolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mainRecyclerView"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="20dp"
-        tools:listitem="@layout/item_enterprise"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolBar" />
+        app:layout_constraintTop_toBottomOf="@+id/mainToolBar">
 
-    <TextView
-        android:id="@+id/mainInformationNoResultTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/empty_list_error_message"
-        android:visibility="gone"
-        tools:visibility="visible"
-        android:textColor="@color/charcoal_grey"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainInformationTextView" />
+        <TextView
+            android:id="@+id/mainInformationTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.01"
+            android:lineSpacingExtra="3.5sp"
+            android:text="@string/main_information_text"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mainRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_enterprise" />
+
+        <TextView
+            android:id="@+id/mainInformationNoResultTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:text="@string/empty_list_error_message"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainInformationTextView"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/mainProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
