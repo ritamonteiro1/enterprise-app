@@ -1,6 +1,7 @@
 package com.example.ioasysmvvm.data.repository.enterprise
 
 import com.example.ioasysmvvm.data.remote.enterprise.data_source.EnterpriseRemoteDataSource
+import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
 import com.example.ioasysmvvm.domain.model.result.Result
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
@@ -51,7 +52,7 @@ class EnterpriseRepositoryImplTest {
         }
 
     @Test
-    fun `GIVEN a call on getEnterpriseList WHEN request is fail THEN it should throw an Exception`() =
+    fun `GIVEN a call on getEnterpriseList WHEN request is fail THEN it should returns a Result Error`() =
         runBlockingTest {
             val enterpriseName = "test"
             val accessToken = "41213e12e"
@@ -59,7 +60,6 @@ class EnterpriseRepositoryImplTest {
             val uid = "2132e12e12"
 
             val expectedError: Result.Error = mockk(relaxed = true)
-
 
             coEvery {
                 enterpriseRemoteDataSource.getEnterpriseList(any(), any(), any(), any())
@@ -74,5 +74,31 @@ class EnterpriseRepositoryImplTest {
                 )
 
             Assert.assertEquals(expectedError, result)
+        }
+
+
+    @Test
+    fun `GIVEN a call on getEnterpriseList WHEN request is successfully THEN it should returns a Result Success`() =
+        runBlockingTest {
+            val enterpriseName = "test"
+            val accessToken = "41213e12e"
+            val client = "teste@gmail.com"
+            val uid = "2132e12e12"
+
+            val expectedSuccess: Result.Success<List<Enterprise>> = mockk(relaxed = true)
+
+            coEvery {
+                enterpriseRemoteDataSource.getEnterpriseList(any(), any(), any(), any())
+            } returns expectedSuccess
+
+            enterpriseRepositoryImpl.getEnterpriseList(
+                enterpriseName, accessToken, client, uid
+            )
+            val result =
+                enterpriseRemoteDataSource.getEnterpriseList(
+                    enterpriseName, accessToken, client, uid
+                )
+
+            Assert.assertEquals(expectedSuccess, result)
         }
 }
