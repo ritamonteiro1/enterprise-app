@@ -50,6 +50,7 @@ class GetEnterpriseListImplTest {
                 )
             }
         }
+
     @Test
     fun `GIVEN a call WHEN request is fail THEN it should returns a Result Error`() =
         runBlockingTest {
@@ -73,5 +74,30 @@ class GetEnterpriseListImplTest {
                 )
 
             Assert.assertEquals(expectedError, result)
+        }
+
+    @Test
+    fun `GIVEN a call WHEN request is successfully THEN it should returns a Result Success`() =
+        runBlockingTest {
+            val enterpriseName = "test"
+            val accessToken = "41213e12e"
+            val client = "teste@gmail.com"
+            val uid = "2132e12e12"
+
+            val expectedSuccess: Result<List<Enterprise>> = mockk(relaxed = true)
+
+            coEvery {
+                enterpriseRepository.getEnterpriseList(any(), any(), any(), any())
+            } returns expectedSuccess
+
+            getEnterpriseListImpl.call(
+                enterpriseName, accessToken, client, uid
+            )
+            val result =
+                enterpriseRepository.getEnterpriseList(
+                    enterpriseName, accessToken, client, uid
+                )
+
+            Assert.assertEquals(expectedSuccess, result)
         }
 }
