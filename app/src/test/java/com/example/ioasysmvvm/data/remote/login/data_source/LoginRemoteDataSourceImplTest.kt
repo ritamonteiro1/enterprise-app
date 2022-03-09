@@ -5,14 +5,12 @@ import com.example.ioasysmvvm.data.remote.login.model.UserRequest
 import com.example.ioasysmvvm.domain.exception.ServerErrorException
 import com.example.ioasysmvvm.domain.model.result.Result
 import com.example.ioasysmvvm.domain.model.user.User
-import com.example.ioasysmvvm.domain.model.user.UserTokens
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import okhttp3.ResponseBody
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
