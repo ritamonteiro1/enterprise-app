@@ -55,7 +55,7 @@ class EnterpriseRemoteDataSourceImplTest {
     }
 
     @Test
-    fun `Given a call on getEnterpriseList WHEN has a error on service THEN returns error`() =
+    fun `GIVEN a call on getEnterpriseList WHEN has a error on service THEN returns error`() =
         runBlockingTest {
             val enterpriseName = "test"
             val accessToken = "41213e12e"
@@ -77,7 +77,7 @@ class EnterpriseRemoteDataSourceImplTest {
         }
 
     @Test
-    fun `Given a call on getEnterpriseList WHEN has a success on service THEN return mapped response`() =
+    fun `GIVEN a call on getEnterpriseList WHEN has a success on service THEN return mapped response`() =
         runBlockingTest {
             val enterpriseName = "test"
             val accessToken = "41213e12e"
