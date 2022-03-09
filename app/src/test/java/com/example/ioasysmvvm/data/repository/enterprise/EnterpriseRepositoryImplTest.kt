@@ -78,7 +78,7 @@ class EnterpriseRepositoryImplTest {
 
 
     @Test
-    fun `GIVEN a call on getEnterpriseList WHEN request is successfully THEN it should returns a Success Response`() =
+    fun `GIVEN a call on getEnterpriseList WHEN request is successfully and Enterprise List is not empty THEN it should returns a Success Response`() =
         runBlockingTest {
             val enterpriseName = "test"
             val accessToken = "41213e12e"
