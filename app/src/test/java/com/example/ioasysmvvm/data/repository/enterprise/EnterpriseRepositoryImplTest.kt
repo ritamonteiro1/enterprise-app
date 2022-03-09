@@ -52,7 +52,7 @@ class EnterpriseRepositoryImplTest {
         }
 
     @Test
-    fun `GIVEN a call on getEnterpriseList WHEN request is fail THEN it should returns a Result Error`() =
+    fun `GIVEN a call on getEnterpriseList WHEN request is fail THEN it should returns a Error Response`() =
         runBlockingTest {
             val enterpriseName = "test"
             val accessToken = "41213e12e"
@@ -78,7 +78,7 @@ class EnterpriseRepositoryImplTest {
 
 
     @Test
-    fun `GIVEN a call on getEnterpriseList WHEN request is successfully THEN it should returns a Result Success`() =
+    fun `GIVEN a call on getEnterpriseList WHEN request is successfully THEN it should returns a Success Response`() =
         runBlockingTest {
             val enterpriseName = "test"
             val accessToken = "41213e12e"
