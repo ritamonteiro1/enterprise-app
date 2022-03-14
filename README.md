@@ -10,6 +10,12 @@ App do desafio da empresa ioasys (https://bitbucket.org/ioasys/empresas-android/
 
 3. Tela de descrição de uma empresa: Nessa tela são exibidos em detalhe as informações de uma empresa clicada na lista da tela anterior.
 
+Principais bibliotecas utilizadas:
+- Gerenciamento de estado: ViewModel, Coroutines
+- Requisição api REST: Retrofit
+- Download de imagens: Glide
+- Injeção de dependência: Koin
+
 ##
 
 <img height="480px" src="images_read_me/image1.jpeg"> <img height="480px" src="images_read_me/image2.jpeg"> <img height="480px" src="images_read_me/image3.jpeg"> <img height="480px" src="images_read_me/image4.jpeg">
