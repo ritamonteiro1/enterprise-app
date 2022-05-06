@@ -15,4 +15,4 @@ Principais bibliotecas utilizadas:
 
 ##
 
-<img height="480px" src="images_read_me/image1.jpeg"> <img height="480px" src="images_read_me/image2.jpeg"> <img height="480px" src="images_read_me/image3.jpeg"> <img height="480px" src="images_read_me/image4.jpeg">
+<img height="480px" src="images_read_me/image1.png"> <img height="480px" src="images_read_me/image2.png"> <img height="480px" src="images_read_me/image3.png"> <img height="480px" src="images_read_me/image4.png"> <img height="480px" src="images_read_me/image5.png"> <img height="480px" src="images_read_me/image6.png"> <img height="480px" src="images_read_me/image7.png"> <img height="480px" src="images_read_me/image8.png"> <img height="480px" src="images_read_me/image9.png"> <img height="480px" src="images_read_me/image10.png"> <img height="480px" src="images_read_me/image11.png"> <img height="480px" src="images_read_me/image12.png">
