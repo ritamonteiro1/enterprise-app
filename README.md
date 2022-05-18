@@ -1,7 +1,3 @@
-Status: aplicando modularização (branch feature/modularization)
-
-##
-
 App do desafio da empresa ioasys (https://bitbucket.org/ioasys/empresas-android/src/master/).
 
 ##
@@ -22,6 +18,17 @@ Principais bibliotecas utilizadas:
 - Download de imagens: Glide
 - Injeção de dependência: Koin
 - Testes unitários: JUnit4 e Mockk
+
+##
+
+Módulos:
+- App
+- Core
+- Navigation
+- DI
+- Feature Auth
+- Feature Home
+- Data source
 
 ##
 

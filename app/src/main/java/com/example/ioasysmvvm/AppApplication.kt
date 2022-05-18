@@ -1,4 +1,4 @@
-package com.example.ioasysmvvm.application
+package com.example.ioasysmvvm
 
 import android.app.Application
 import com.example.ioasysmvvm.di.loginModule
