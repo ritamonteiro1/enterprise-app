@@ -1,2 +1,10 @@
 rootProject.name = "IoasysMVVM"
-include ':app'
+include(
+        ':app',
+        ':featureauth',
+        ':core',
+        ':featurehome',
+        ':datasource',
+        ':di',
+        ':navigation'
+)
