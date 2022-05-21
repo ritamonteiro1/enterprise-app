@@ -1,12 +1,12 @@
 package com.example.featurehome.presentation
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.core.constants.Constants
 import com.example.core.extensions.showErrorDialog
 import com.example.core.model.EmptyEnterpriseListException
 import com.example.core.model.NetworkErrorException
@@ -25,7 +25,6 @@ class EnterpriseListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentEnterpriseListBinding.inflate(layoutInflater)
-
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -50,13 +49,12 @@ class EnterpriseListFragment : Fragment() {
                 return true
             }
         })
-        return super.onCreateOptionsMenu(menu)
     }
 
     private fun getEnterpriseList(newText: String) {
-        val accessToken = intent.getStringExtra(Constants.HEADER_ACCESS_TOKEN).orEmpty()
-        val uid = intent.getStringExtra(Constants.HEADER_UID).orEmpty()
-        val client = intent.getStringExtra(Constants.HEADER_CLIENT).orEmpty()
+        val accessToken = activity?.intent?.getStringExtra(Constants.HEADER_ACCESS_TOKEN).orEmpty()
+        val uid = activity?.intent?.getStringExtra(Constants.HEADER_UID).orEmpty()
+        val client = activity?.intent?.getStringExtra(Constants.HEADER_CLIENT).orEmpty()
         viewModel.getEnterpriseList(newText, accessToken, client, uid)
     }
 
@@ -91,10 +89,7 @@ class EnterpriseListFragment : Fragment() {
 
     private fun setupEnterpriseListAdapter(enterpriseList: List<Enterprise>): EnterpriseListAdapter {
         return EnterpriseListAdapter(enterpriseList) { enterprise ->
-            val intent =
-                Intent(this@EnterpriseListActivity, EnterpriseDetailsActivity::class.java)
-            intent.putExtra(Constants.ENTERPRISE_DETAILS, enterprise)
-            startActivity(intent)
+            //val action = EnterpriseListFragment
         }
     }
 
@@ -107,7 +102,7 @@ class EnterpriseListFragment : Fragment() {
     }
 
     private fun setupToolBar() {
-        setSupportActionBar(binding.enterpriseListToolBar)
+        //setSupportActionBar(binding.enterpriseListToolBar)
         activity?.actionBar?.setDisplayShowTitleEnabled(false)
     }
 }

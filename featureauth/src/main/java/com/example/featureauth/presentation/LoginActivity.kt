@@ -2,24 +2,22 @@ package com.example.featureauth.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.featureauth.R
 import com.example.featureauth.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var navHostFragment: NavHostFragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.login)
-        return navController.navigateUp()
-                || super.onSupportNavigateUp()
+        navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.login) as NavHostFragment
     }
 }

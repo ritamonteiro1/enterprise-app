@@ -6,18 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <androidx.appcompat.widget.Toolbar
+    <include
         android:id="@+id/enterpriseDetailsToolBar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/medium_pink"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:titleTextColor="@color/white" />
+        layout="@layout/content_tool_bar" />
 
     <ScrollView
         android:id="@+id/enterpriseDetailsScrollView"

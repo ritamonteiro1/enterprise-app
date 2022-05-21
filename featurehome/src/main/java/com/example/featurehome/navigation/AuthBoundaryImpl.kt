@@ -11,11 +11,11 @@ import com.example.navigation.UserTokensNavigation
 
 class AuthBoundaryImpl : AuthBoundary {
     override fun navigateToHome(activity: Activity?, userTokensNavigation: UserTokensNavigation) {
-        val intent = Intent(activity, HomeActivity::class.java)
-        intent.putExtra(Constants.HEADER_ACCESS_TOKEN, userTokensNavigation.accessToken)
-        intent.putExtra(Constants.HEADER_UID, userTokensNavigation.uid)
-        intent.putExtra(Constants.HEADER_CLIENT, userTokensNavigation.client)
-        startActivity(intent)
-        finish()
+        activity?.startActivity(Intent(activity, HomeActivity::class.java).apply {
+            putExtra(Constants.HEADER_ACCESS_TOKEN, userTokensNavigation.accessToken)
+            putExtra(Constants.HEADER_UID, userTokensNavigation.uid)
+            putExtra(Constants.HEADER_CLIENT, userTokensNavigation.client)
+        })
+        activity?.finish()
     }
 }

@@ -1,7 +1,7 @@
 package com.example.datasource.remote.login
 
-import com.example.datasource.model.user.UserTokens
-import com.example.ioasysmvvm.domain.model.user.User
+import com.example.datasource.model.UserTokens
+import com.example.datasource.model.user.User
 import com.example.datasource.result.Result
 
 

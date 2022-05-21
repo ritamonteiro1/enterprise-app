@@ -1,8 +1,8 @@
 package com.example.featureauth.domain.use_case
 
 import com.example.datasource.repository.login.LoginRepository
-import com.example.ioasysmvvm.domain.model.user.User
-import com.example.datasource.model.user.UserTokens
+import com.example.datasource.model.user.User
+import com.example.datasource.model.UserTokens
 import com.example.datasource.result.Result
 
 

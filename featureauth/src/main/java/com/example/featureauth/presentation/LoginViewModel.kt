@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.datasource.model.user.UserTokens
+import com.example.datasource.model.UserTokens
 import com.example.featureauth.domain.model.EmailStatus
 import com.example.featureauth.domain.model.PasswordStatus
 import com.example.featureauth.domain.use_case.DoLoginUseCase
 import com.example.featureauth.domain.use_case.ValidateUserEmailUseCase
 import com.example.featureauth.domain.use_case.ValidateUserPasswordUseCase
-import com.example.ioasysmvvm.domain.model.user.User
+import com.example.datasource.model.user.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext

@@ -6,10 +6,10 @@ import com.example.core.model.ServerErrorException
 import com.example.core.model.UnauthorizedException
 import com.example.datasource.api.LoginService
 import com.example.datasource.api.retrofitWrapper
-import com.example.datasource.model.user.UserTokens
+import com.example.datasource.model.UserTokens
 import com.example.datasource.remote.login.model.UserRequest
 import com.example.datasource.result.Result
-import com.example.ioasysmvvm.domain.model.user.User
+import com.example.datasource.model.user.User
 import okhttp3.ResponseBody
 import retrofit2.Response
 import javax.net.ssl.HttpsURLConnection

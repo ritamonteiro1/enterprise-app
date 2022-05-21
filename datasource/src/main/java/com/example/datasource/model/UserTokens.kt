@@ -1,4 +1,4 @@
-package com.example.datasource.model.user
+package com.example.datasource.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

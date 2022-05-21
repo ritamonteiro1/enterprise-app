@@ -9,11 +9,15 @@
         android:name="com.example.featurehome.presentation.EnterpriseListFragment"
         android:label="EnterpriseListFragment" >
         <action
-            android:id="@+id/action_enterpriseListFragment_to_enterpriseDetailsFragment"
+            android:id="@+id/action_enterpriseList_to_enterpriseDetails"
             app:destination="@id/enterpriseDetails" />
     </fragment>
     <fragment
         android:id="@+id/enterpriseDetails"
         android:name="com.example.featurehome.presentation.EnterpriseDetailsFragment"
-        android:label="EnterpriseDetailsFragment" />
+        android:label="EnterpriseDetailsFragment" >
+        <argument
+            android:name="enterprise"
+            app:argType="com.example.datasource.model.enterprise.Enterprise" />
+    </fragment>
 </navigation>
