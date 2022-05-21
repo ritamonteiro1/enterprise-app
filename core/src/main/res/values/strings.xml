@@ -1,23 +1,23 @@
 <resources>
     <!--    AndroidManifest.xml-->
     <string name="app_name">Empresas</string>
-    <!--    LoginActivity-->
+    <!--    LoginFragment-->
     <string name="login_error_email_password">Credenciais inválidas. Tente novamente.</string>
     <string name="incorrect_email">Preencha o campo no formato de E-mail. Ex: abc@abc.com.br</string>
     <string name="invalid_password"> A senha deve conter pelo menos 8 caracteres</string>
     <string name="fill_the_field">Preencha o campo</string>
-    <!--    EnterpriseListActivity-->
+    <!--    EnterpriseListFragment-->
     <string name="enterprise_list_query_hint_menu_search">Pesquisar</string>
-    <!--    activity_login.xml-->
+    <!--    fragment_login.xml-->
     <string name="login_logo_content_description">Logotipo da Ioasys</string>
     <string name="login_welcome_content_description">Bem-vindo ao Empresas</string>
     <string name="login_presentation_text">Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.</string>
     <string name="login_email_text_hint">E-mail</string>
     <string name="login_password_text_hint">Senha</string>
     <string name="login_button_text">Entrar</string>
-    <!--    activity_enterprise_list.xml-->
+    <!--    fragment_enterprise_list.xml-->
     <string name="enterprise_list_information_text">Clique na busca para iniciar.</string>
-    <!--    activity_enterprise_details.xml-->
+    <!--    fragment_enterprise_details.xml-->
     <string name="enterprise_details_enterprise_image">Imagem da empresa</string>
     <!--    item_enterprise.xml-->
     <string name="img_enterprise">Imagem da Empresa</string>

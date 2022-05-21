@@ -1,9 +1,8 @@
+package com.example.featurehome.presentation
+
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -14,8 +13,6 @@ import com.example.core.model.NetworkErrorException
 import com.example.datasource.model.enterprise.Enterprise
 import com.example.featurehome.R
 import com.example.featurehome.databinding.FragmentEnterpriseListBinding
-import com.example.featurehome.presentation.EnterpriseListViewModel
-import com.example.featurehome.presentation.EnterpriseListAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EnterpriseListFragment : Fragment() {
@@ -38,9 +35,9 @@ class EnterpriseListFragment : Fragment() {
         setupToolBar()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        val menuItem = menu?.findItem(R.id.search)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+        val menuItem = menu.findItem(R.id.search)
         val searchView: SearchView = menuItem?.actionView as SearchView
         searchView.queryHint = getString(R.string.enterprise_list_query_hint_menu_search)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -52,7 +49,6 @@ class EnterpriseListFragment : Fragment() {
                 getEnterpriseList(newText.orEmpty())
                 return true
             }
-
         })
         return super.onCreateOptionsMenu(menu)
     }
@@ -105,13 +101,13 @@ class EnterpriseListFragment : Fragment() {
     private fun setupRecyclerView(enterpriseListAdapter: EnterpriseListAdapter) {
         binding.enterpriseListRecyclerView.adapter = enterpriseListAdapter
         val layoutManager = LinearLayoutManager(
-            this, LinearLayoutManager.VERTICAL, false
+            activity, LinearLayoutManager.VERTICAL, false
         )
         binding.enterpriseListRecyclerView.layoutManager = layoutManager
     }
 
     private fun setupToolBar() {
         setSupportActionBar(binding.enterpriseListToolBar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        activity?.actionBar?.setDisplayShowTitleEnabled(false)
     }
 }

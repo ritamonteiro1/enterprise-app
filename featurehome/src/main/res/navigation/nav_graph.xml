@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph.xml">
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/enterpriseList">
 
+    <fragment
+        android:id="@+id/enterpriseList"
+        android:name="com.example.featurehome.presentation.EnterpriseListFragment"
+        android:label="EnterpriseListFragment" >
+        <action
+            android:id="@+id/action_enterpriseListFragment_to_enterpriseDetailsFragment"
+            app:destination="@id/enterpriseDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterpriseDetails"
+        android:name="com.example.featurehome.presentation.EnterpriseDetailsFragment"
+        android:label="EnterpriseDetailsFragment" />
 </navigation>

@@ -1,3 +1,5 @@
+package com.example.featureauth.presentation
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +14,6 @@ import com.example.featureauth.R
 import com.example.featureauth.databinding.FragmentLoginBinding
 import com.example.featureauth.domain.model.EmailStatus
 import com.example.featureauth.domain.model.PasswordStatus
-import com.example.featureauth.presentation.LoginViewModel
 import com.example.navigation.AuthBoundary
 import com.example.navigation.UserTokensNavigation
 import org.koin.android.ext.android.inject

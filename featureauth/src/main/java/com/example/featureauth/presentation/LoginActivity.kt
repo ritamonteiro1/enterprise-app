@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.loginFragment)
+        val navController = findNavController(R.id.login)
         return navController.navigateUp()
                 || super.onSupportNavigateUp()
     }

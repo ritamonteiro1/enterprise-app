@@ -3,18 +3,20 @@ package com.example.featurehome.presentation
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import com.example.core.constants.Constants
 import com.example.core.extensions.createLoadingDialog
+import com.example.core.extensions.downloadImage
 import com.example.datasource.model.enterprise.Enterprise
 import com.example.featurehome.databinding.FragmentEnterpriseDetailsBinding
 
 
 class EnterpriseDetailsFragment : Fragment() {
-    private lateinit var resultViewBinding: FragmentEnterpriseDetailsBinding
+    private lateinit var binding: FragmentEnterpriseDetailsBinding
     private val loadingDialog by lazy { activity?.createLoadingDialog() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        resultViewBinding = FragmentEnterpriseDetailsBinding.inflate(layoutInflater)
+        binding = FragmentEnterpriseDetailsBinding.inflate(layoutInflater)
         loadingDialog?.show()
         val enterprise: Enterprise = retrieverEnterprise()
         setupToolBar(enterprise.enterpriseName)
@@ -22,11 +24,11 @@ class EnterpriseDetailsFragment : Fragment() {
     }
 
     private fun showEnterpriseDetails(enterprise: Enterprise) {
-        loadingDialog.dismiss()
-        resultViewBinding.enterpriseDetailsImageView.downloadImage(
+        loadingDialog?.dismiss()
+        binding.enterpriseDetailsImageView.downloadImage(
             Constants.BASE_IMAGE_URL + enterprise.photo
         )
-        resultViewBinding.enterpriseDetailsTextView.text = enterprise.description
+        binding.enterpriseDetailsTextView.text = enterprise.description
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -38,9 +40,9 @@ class EnterpriseDetailsFragment : Fragment() {
     }
 
     private fun setupToolBar(enterpriseName: String) {
-        setSupportActionBar(resultViewBinding.enterpriseDetailsToolBar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = enterpriseName
+        activity?.setSupportActionBar(binding.enterpriseDetailsToolBar)
+        activity?.actionBar?.setDisplayShowTitleEnabled(true)
+        activity?.actionBar?.title = enterpriseName
     }
 
     private fun retrieverEnterprise(): Enterprise {
