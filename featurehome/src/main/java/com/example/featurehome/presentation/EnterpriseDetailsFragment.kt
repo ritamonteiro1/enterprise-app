@@ -2,6 +2,7 @@ package com.example.featurehome.presentation
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.core.constants.Constants
 import com.example.core.extensions.createLoadingDialog
@@ -17,6 +18,10 @@ class EnterpriseDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentEnterpriseDetailsBinding.inflate(layoutInflater)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         loadingDialog?.show()
         val enterprise: Enterprise = retrieverEnterprise()
         setupToolBar(enterprise.enterpriseName)
