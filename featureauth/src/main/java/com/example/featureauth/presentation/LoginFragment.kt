@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.core.constants.Constants
 import com.example.core.extensions.createLoadingDialog
 import com.example.core.extensions.showErrorDialog
 import com.example.core.model.NetworkErrorException
 import com.example.core.model.UnauthorizedException
 import com.example.featureauth.R
-import com.example.featureauth.constants.Constants
 import com.example.featureauth.databinding.FragmentLoginBinding
 import com.example.featureauth.domain.model.EmailStatus
 import com.example.featureauth.domain.model.PasswordStatus

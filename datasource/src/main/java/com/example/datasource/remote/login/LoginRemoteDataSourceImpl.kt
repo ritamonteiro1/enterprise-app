@@ -1,15 +1,17 @@
 package com.example.datasource.remote.login
 
+
 import com.example.core.constants.Constants
 import com.example.core.model.ServerErrorException
 import com.example.core.model.UnauthorizedException
 import com.example.datasource.api.LoginService
 import com.example.datasource.api.retrofitWrapper
+import com.example.datasource.model.user.UserTokens
 import com.example.datasource.remote.login.model.UserRequest
+import com.example.datasource.result.Result
+import com.example.ioasysmvvm.domain.model.user.User
 import okhttp3.ResponseBody
 import retrofit2.Response
-import com.example.datasource.result.Result
-
 import javax.net.ssl.HttpsURLConnection
 
 class LoginRemoteDataSourceImpl(private val loginService: LoginService) : LoginRemoteDataSource {

@@ -2,8 +2,8 @@ package com.example.datasource.remote.enterprise
 
 import com.example.datasource.api.EnterpriseService
 import com.example.datasource.api.retrofitWrapper
+import com.example.datasource.model.enterprise.Enterprise
 import com.example.datasource.result.Result
-
 
 class EnterpriseRemoteDataSourceImpl(private val enterpriseService: EnterpriseService) :
     EnterpriseRemoteDataSource {

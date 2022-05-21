@@ -1,5 +1,7 @@
 package com.example.datasource.repository.enterprise
 
+import com.example.datasource.model.enterprise.Enterprise
+import com.example.datasource.result.Result
 import com.example.datasource.remote.enterprise.EnterpriseRemoteDataSource
 
 class EnterpriseRepositoryImpl(private val enterpriseRemoteDataSource: EnterpriseRemoteDataSource) :
