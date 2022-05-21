@@ -1,4 +1,3 @@
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,9 +13,13 @@ import com.example.featureauth.databinding.FragmentLoginBinding
 import com.example.featureauth.domain.model.EmailStatus
 import com.example.featureauth.domain.model.PasswordStatus
 import com.example.featureauth.presentation.LoginViewModel
+import com.example.navigation.AuthBoundary
+import com.example.navigation.UserTokensNavigation
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
+    private val boundary: AuthBoundary by inject()
     private val viewModel: LoginViewModel by viewModel()
     private lateinit var binding: FragmentLoginBinding
     private val loadingDialog by lazy { activity?.createLoadingDialog() }
@@ -80,12 +83,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun moveToMainActivity(accessToken: String, uid: String, client: String) {
-        val intent = Intent(this, EnterpriseListActivity::class.java)
-        intent.putExtra(Constants.HEADER_ACCESS_TOKEN, accessToken)
-        intent.putExtra(Constants.HEADER_UID, uid)
-        intent.putExtra(Constants.HEADER_CLIENT, client)
-        startActivity(intent)
-        finish()
+        val userTokensNavigation = UserTokensNavigation(accessToken, uid, client)
+        boundary.navigateToHome(activity, userTokensNavigation)
     }
 
     private fun handleInvalidPassword(isValidPassword: PasswordStatus) {

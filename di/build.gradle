@@ -81,4 +81,5 @@ dependencies {
     implementation(project(':featureauth'))
     implementation(project(':featurehome'))
     implementation(project(':datasource'))
+    implementation(project(':core'))
 }

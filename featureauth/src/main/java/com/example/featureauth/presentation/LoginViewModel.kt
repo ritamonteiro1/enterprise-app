@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.datasource.model.user.UserTokens
-import com.example.datasource.result.Result
 import com.example.featureauth.domain.model.EmailStatus
 import com.example.featureauth.domain.model.PasswordStatus
 import com.example.featureauth.domain.use_case.DoLoginUseCase
@@ -15,6 +14,7 @@ import com.example.ioasysmvvm.domain.model.user.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
+import com.example.datasource.result.Result
 
 class LoginViewModel(
     private val validateUserEmail: ValidateUserEmailUseCase,

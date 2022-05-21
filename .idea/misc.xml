@@ -12,6 +12,8 @@
         <entry key="..\:/ProjetosAndroid/enterprise-app/app/src/main/res/layout/progress_dialog.xml" value="0.16666666666666666" />
         <entry key="..\:/ProjetosAndroid/enterprise-app/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
         <entry key="..\:/ProjetosAndroid/enterprise-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_enterprise_details.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/activity_enterprise_list.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3591485507246377" />
         <entry key="core/src/main/res/drawable/ic_email.xml" value="0.2125" />
         <entry key="core/src/main/res/layout/progresss_dialog.xml" value="0.3591485507246377" />
@@ -19,6 +21,12 @@
         <entry key="featureauth/src/main/res/layout/content_login.xml" value="0.3591485507246377" />
         <entry key="featureauth/src/main/res/layout/fragment_login.xml" value="0.3591485507246377" />
         <entry key="featureauth/src/main/res/layout/login_fragment.xml" value="0.3591485507246377" />
+        <entry key="featurehome/src/main/res/layout/activity_home.xml" value="0.37604166666666666" />
+        <entry key="featurehome/src/main/res/layout/content_home.xml" value="0.37604166666666666" />
+        <entry key="featurehome/src/main/res/layout/fragment_enterprise_details.xml" value="0.37604166666666666" />
+        <entry key="featurehome/src/main/res/layout/fragment_enterprise_list.xml" value="0.37604166666666666" />
+        <entry key="featurehome/src/main/res/layout/item_enterprise.xml" value="0.37604166666666666" />
+        <entry key="featurehome/src/main/res/menu/menu.xml" value="0.37604166666666666" />
       </map>
     </option>
   </component>
