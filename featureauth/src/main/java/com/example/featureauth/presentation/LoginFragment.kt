@@ -18,6 +18,7 @@ import com.example.navigation.UserTokensNavigation
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+
 class LoginFragment : Fragment() {
     private val boundary: AuthBoundary by inject()
     private val viewModel: LoginViewModel by viewModel()
