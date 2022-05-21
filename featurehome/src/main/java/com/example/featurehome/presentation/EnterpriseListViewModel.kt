@@ -37,7 +37,7 @@ class EnterpriseListViewModel(
                 }
                 is Result.Success -> {
                     _loading.postValue(false)
-                    _enterpriseList.postValue(result.data)
+                    _enterpriseList.postValue(result.data!!)
                 }
             }
         }

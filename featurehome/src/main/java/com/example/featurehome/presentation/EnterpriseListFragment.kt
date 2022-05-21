@@ -89,7 +89,7 @@ class EnterpriseListFragment : Fragment() {
 
     private fun setupEnterpriseListAdapter(enterpriseList: List<Enterprise>): EnterpriseListAdapter {
         return EnterpriseListAdapter(enterpriseList) { enterprise ->
-            //val action = EnterpriseListFragment
+            //val action = EnterpriseListFragmentDirec
         }
     }
 
