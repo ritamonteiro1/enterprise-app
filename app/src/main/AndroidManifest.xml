@@ -12,10 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ioasys">
-        <activity android:name=".presentation.enterprise.enterprise_details.EnterpriseDetailsActivity" />
-        <activity android:name=".presentation.enterprise.enterprise_list.EnterpriseListActivity" />
+        <activity android:name=".featurehome.presentation.LoginActivity" />
         <activity
-            android:name=".presentation.login.LoginActivity"
+            android:name=".featureauth.presentation.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

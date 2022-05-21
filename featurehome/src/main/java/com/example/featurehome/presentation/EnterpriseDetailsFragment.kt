@@ -34,9 +34,9 @@ class EnterpriseDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadingDialog?.show()
-        val enterprise: Enterprise = retrieverEnterprise()
-        setupToolBar(enterprise.enterpriseName)
-        showEnterpriseDetails(enterprise)
+//        val enterprise: Enterprise = retrieverEnterprise()
+//        setupToolBar(enterprise.enterpriseName)
+//        showEnterpriseDetails(enterprise)
     }
 
     private fun showEnterpriseDetails(enterprise: Enterprise) {
@@ -60,7 +60,7 @@ class EnterpriseDetailsFragment : Fragment() {
         activity?.actionBar?.title = enterpriseName
     }
 
-    private fun retrieverEnterprise(): Enterprise {
-        //return intent.getSerializableExtra(Constants.ENTERPRISE_DETAILS_KEY) as Enterprise
-    }
+//    private fun retrieverEnterprise(): Enterprise {
+//        //return intent.getSerializableExtra(Constants.ENTERPRISE_DETAILS_KEY) as Enterprise
+//    }
 }
