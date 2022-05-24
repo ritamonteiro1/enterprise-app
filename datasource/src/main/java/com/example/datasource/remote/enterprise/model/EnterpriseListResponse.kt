@@ -3,7 +3,6 @@ package com.example.datasource.remote.enterprise.model
 
 import com.example.datasource.model.enterprise.Enterprise
 import com.example.datasource.model.enterprise.EnterpriseType
-import com.example.ioasysmvvm.data.remote.enterprise.model.EnterpriseResponse
 
 data class EnterpriseListResponse(val enterprises: List<EnterpriseResponse>?) {
     fun mapToEnterpriseListModel() =

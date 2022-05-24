@@ -47,7 +47,7 @@ class LoginViewModel(
                     }
                     is Result.Success -> {
                         _loading.postValue(false)
-                        _userTokens.postValue(result.data!!)
+                        _userTokens.postValue(result.data)
                     }
                 }
             }
