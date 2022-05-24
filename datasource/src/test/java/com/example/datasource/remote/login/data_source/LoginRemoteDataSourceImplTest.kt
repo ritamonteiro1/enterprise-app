@@ -1,10 +1,11 @@
-package com.example.ioasysmvvm.data.remote.login.data_source
+package com.example.datasource.remote.login.data_source
 
-import com.example.ioasysmvvm.data.api.LoginService
-import com.example.ioasysmvvm.data.remote.login.model.UserRequest
-import com.example.ioasysmvvm.domain.exception.ServerErrorException
-import com.example.ioasysmvvm.domain.model.result.Result
-import com.example.ioasysmvvm.domain.model.user.User
+import com.example.core.model.ServerErrorException
+import com.example.datasource.api.LoginService
+import com.example.datasource.model.user.User
+import com.example.datasource.result.Result
+import com.example.datasource.remote.login.LoginRemoteDataSourceImpl
+import com.example.datasource.remote.login.model.UserRequest
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify

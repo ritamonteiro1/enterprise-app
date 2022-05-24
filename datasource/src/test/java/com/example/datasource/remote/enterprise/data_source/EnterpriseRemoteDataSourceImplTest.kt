@@ -1,15 +1,17 @@
-package com.example.ioasysmvvm.data.remote.enterprise.data_source
+package com.example.datasource.remote.enterprise.data_source
 
-import com.example.ioasysmvvm.data.api.EnterpriseService
-import com.example.ioasysmvvm.data.remote.enterprise.model.EnterpriseListResponse
-import com.example.ioasysmvvm.domain.exception.ServerErrorException
-import com.example.ioasysmvvm.domain.model.result.Result
+import com.example.core.model.ServerErrorException
+import com.example.datasource.api.EnterpriseService
+import com.example.datasource.remote.enterprise.EnterpriseRemoteDataSourceImpl
+import com.example.datasource.remote.enterprise.model.EnterpriseListResponse
 import io.mockk.clearAllMocks
+import com.example.datasource.result.Result
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

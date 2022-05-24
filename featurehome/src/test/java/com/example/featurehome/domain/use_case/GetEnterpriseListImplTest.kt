@@ -1,11 +1,11 @@
-package com.example.ioasysmvvm.data.repository.enterprise
+package com.example.featurehome.domain.use_case
 
-import com.example.ioasysmvvm.data.remote.enterprise.data_source.EnterpriseRemoteDataSource
-import com.example.ioasysmvvm.domain.model.enterprise.Enterprise
-import com.example.ioasysmvvm.domain.model.result.Result
+import com.example.datasource.model.enterprise.Enterprise
+import com.example.datasource.repository.enterprise.EnterpriseRepository
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
+import com.example.datasource.result.Result
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -15,13 +15,13 @@ import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class EnterpriseRepositoryImplTest {
-    private val enterpriseRemoteDataSource: EnterpriseRemoteDataSource = mockk()
-    private lateinit var enterpriseRepositoryImpl: EnterpriseRepositoryImpl
+class GetEnterpriseListImplTest {
+    private val enterpriseRepository: EnterpriseRepository = mockk()
+    private lateinit var getEnterpriseListImpl: GetEnterpriseListUseCaseImpl
 
     @Before
     fun setupMocks() {
-        enterpriseRepositoryImpl = EnterpriseRepositoryImpl(enterpriseRemoteDataSource)
+        getEnterpriseListImpl = GetEnterpriseListUseCaseImpl(enterpriseRepository)
     }
 
     @After
@@ -30,7 +30,7 @@ class EnterpriseRepositoryImplTest {
     }
 
     @Test
-    fun `GIVEN a call on getEnterpriseList THEN call enterpriseRemoteDataSource`() =
+    fun `GIVEN a call THEN call enterpriseRepository`() =
         runBlockingTest {
             val enterpriseName = "test"
             val accessToken = "41213e12e"
@@ -38,21 +38,21 @@ class EnterpriseRepositoryImplTest {
             val uid = "2132e12e12"
 
             coEvery {
-                enterpriseRemoteDataSource.getEnterpriseList(any(), any(), any(), any())
+                enterpriseRepository.getEnterpriseList(any(), any(), any(), any())
             } returns mockk(relaxed = true)
 
-            enterpriseRepositoryImpl.getEnterpriseList(
+            getEnterpriseListImpl.call(
                 enterpriseName, accessToken, client, uid
             )
             coVerify(exactly = 1) {
-                enterpriseRemoteDataSource.getEnterpriseList(
+                enterpriseRepository.getEnterpriseList(
                     enterpriseName, accessToken, client, uid
                 )
             }
         }
 
     @Test
-    fun `GIVEN a call on getEnterpriseList WHEN request is fail THEN it should returns a Error Response`() =
+    fun `GIVEN a call WHEN request is fail THEN it should returns a Error Response`() =
         runBlockingTest {
             val enterpriseName = "test"
             val accessToken = "41213e12e"
@@ -62,40 +62,39 @@ class EnterpriseRepositoryImplTest {
             val expectedError: Result.Error = mockk(relaxed = true)
 
             coEvery {
-                enterpriseRemoteDataSource.getEnterpriseList(any(), any(), any(), any())
+                enterpriseRepository.getEnterpriseList(any(), any(), any(), any())
             } returns expectedError
 
-            enterpriseRepositoryImpl.getEnterpriseList(
+            getEnterpriseListImpl.call(
                 enterpriseName, accessToken, client, uid
             )
             val result =
-                enterpriseRemoteDataSource.getEnterpriseList(
+                enterpriseRepository.getEnterpriseList(
                     enterpriseName, accessToken, client, uid
                 )
 
             Assert.assertEquals(expectedError, result)
         }
 
-
     @Test
-    fun `GIVEN a call on getEnterpriseList WHEN request is successfully and Enterprise List is not empty THEN it should returns a Success Response`() =
+    fun `GIVEN a call WHEN request is successfully THEN it should returns a SuccessResponse`() =
         runBlockingTest {
             val enterpriseName = "test"
             val accessToken = "41213e12e"
             val client = "teste@gmail.com"
             val uid = "2132e12e12"
 
-            val expectedSuccess: Result.Success<List<Enterprise>> = mockk(relaxed = true)
+            val expectedSuccess: Result<List<Enterprise>> = mockk(relaxed = true)
 
             coEvery {
-                enterpriseRemoteDataSource.getEnterpriseList(any(), any(), any(), any())
+                enterpriseRepository.getEnterpriseList(any(), any(), any(), any())
             } returns expectedSuccess
 
-            enterpriseRepositoryImpl.getEnterpriseList(
+            getEnterpriseListImpl.call(
                 enterpriseName, accessToken, client, uid
             )
             val result =
-                enterpriseRemoteDataSource.getEnterpriseList(
+                enterpriseRepository.getEnterpriseList(
                     enterpriseName, accessToken, client, uid
                 )
 
