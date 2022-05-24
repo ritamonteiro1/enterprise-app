@@ -1,0 +1,25 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml:2:1-39
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml:2:1-39
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml:2:1-39
+	package
+		ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml:2:11-37
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml:2:1-39
+uses-sdk
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+		ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+		ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/core/src/main/AndroidManifest.xml

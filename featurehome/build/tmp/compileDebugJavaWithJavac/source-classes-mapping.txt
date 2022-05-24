@@ -1,0 +1,18 @@
+com/example/featurehome/databinding/FragmentEnterpriseListBinding.java
+ com.example.featurehome.databinding.FragmentEnterpriseListBinding
+com/example/featurehome/presentation/EnterpriseListFragmentDirections.java
+ com.example.featurehome.presentation.EnterpriseListFragmentDirections
+ com.example.featurehome.presentation.EnterpriseListFragmentDirections$1
+ com.example.featurehome.presentation.EnterpriseListFragmentDirections$ActionEnterpriseListToEnterpriseDetails
+com/example/featurehome/databinding/ActivityHomeBinding.java
+ com.example.featurehome.databinding.ActivityHomeBinding
+com/example/featurehome/databinding/FragmentEnterpriseDetailsBinding.java
+ com.example.featurehome.databinding.FragmentEnterpriseDetailsBinding
+com/example/featurehome/databinding/ItemEnterpriseBinding.java
+ com.example.featurehome.databinding.ItemEnterpriseBinding
+com/example/featurehome/presentation/EnterpriseDetailsFragmentArgs.java
+ com.example.featurehome.presentation.EnterpriseDetailsFragmentArgs
+ com.example.featurehome.presentation.EnterpriseDetailsFragmentArgs$1
+ com.example.featurehome.presentation.EnterpriseDetailsFragmentArgs$Builder
+com/example/featurehome/BuildConfig.java
+ com.example.featurehome.BuildConfig

@@ -2,16 +2,17 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+
 }
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.ioasysmvvm"
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -74,13 +75,5 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion"
     //mockk
     testImplementation "io.mockk:mockk:${mockkVersion}"
-
-    implementation(project(':di'))
-    implementation(project(':featureauth'))
-    implementation(project(':featurehome'))
-    implementation(project(':navigation'))
-    implementation(project(':datasource'))
-    implementation(project(':core'))
-
 
 }

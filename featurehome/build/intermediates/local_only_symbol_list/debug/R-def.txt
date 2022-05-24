@@ -1,0 +1,30 @@
+R_DEF: Internal format may change without notice
+local
+id action_enterpriseList_to_enterpriseDetails
+id enterpriseDetails
+id enterpriseDetailsConstraintLayout
+id enterpriseDetailsImageView
+id enterpriseDetailsScrollView
+id enterpriseDetailsTextView
+id enterpriseDetailsToolbar
+id enterpriseList
+id enterpriseListProgressBar
+id enterpriseListRecyclerView
+id enterpriseListTextView
+id enterpriseListToolBar
+id homeFragmentContainer
+id home_navigation
+id itemEnterpriseCardView
+id itemEnterpriseConstraintLayout
+id itemEnterpriseCountryTextView
+id itemEnterpriseImageView
+id itemEnterpriseNameTextView
+id itemEnterpriseTypeTextView
+id mainConstraintLayout
+id search
+layout activity_home
+layout fragment_enterprise_details
+layout fragment_enterprise_list
+layout item_enterprise
+menu menu
+navigation home_nav_graph

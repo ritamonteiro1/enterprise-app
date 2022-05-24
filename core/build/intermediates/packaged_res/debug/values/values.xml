@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="beige">#ebe9d7</color>
+    <color name="black">#FF000000</color>
+    <color name="black_3b">#3B000000</color>
+    <color name="blue">#57bbbc</color>
+    <color name="charcoal_grey">#383743</color>
+    <color name="charcoal_grey_two">#403e4d</color>
+    <color name="dark_indigo">#1a0e49</color>
+    <color name="grey">#80383743</color>
+    <color name="medium_pink">#ee4c77</color>
+    <color name="neon_red">#ff0f44</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="warm_grey">#8d8c8c</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="radius_button">3dp</dimen>
+    <dimen name="value">10dp</dimen>
+    <string name="alert_dialog_text">OK</string>
+    <string name="app_name">Empresas</string>
+    <string name="empty_list_error_message">Não foram encontrados resultados para esta pesquisa.</string>
+    <string name="enterprise_details_enterprise_image">Imagem da empresa</string>
+    <string name="enterprise_list_information_text">Clique na busca para iniciar.</string>
+    <string name="enterprise_list_query_hint_menu_search">Pesquisar</string>
+    <string name="error_connection_fail">Falha na conexão com a internet, tente novamente.</string>
+    <string name="fill_the_field">Preencha o campo</string>
+    <string name="img_enterprise">Imagem da Empresa</string>
+    <string name="incorrect_email">Preencha o campo no formato de E-mail. Ex: abc@abc.com.br</string>
+    <string name="invalid_password"> A senha deve conter pelo menos 8 caracteres</string>
+    <string name="login_button_text">Entrar</string>
+    <string name="login_email_text_hint">E-mail</string>
+    <string name="login_error_email_password">Credenciais inválidas. Tente novamente.</string>
+    <string name="login_logo_content_description">Logotipo da Ioasys</string>
+    <string name="login_password_text_hint">Senha</string>
+    <string name="login_presentation_text">Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.</string>
+    <string name="login_welcome_content_description">Bem-vindo ao Empresas</string>
+    <string name="occurred_error">Ocorreu um erro. Tente novamente mais tarde.</string>
+    <string name="search_view">Pesquisar</string>
+    <style name="AppTheme.Toolbar" parent="Theme.Ioasys">
+        <!--This line changes the color of text in Toolbar-->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!--This line changes the color of icons in toolbar (back, overflow menu icons)-->
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+    <style name="Theme.Ioasys" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/medium_pink</item>
+        <item name="colorPrimaryVariant">@color/neon_red</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/medium_pink</item>
+        <item name="colorSecondaryVariant">@color/neon_red</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" ns1:targetApi="l">@color/black_3b</item>
+        <item name="android:navigationBarColor" ns1:targetApi="l">@color/black_3b</item>
+    </style>
+</resources>

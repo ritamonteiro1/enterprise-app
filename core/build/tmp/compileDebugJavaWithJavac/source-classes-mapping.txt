@@ -1,0 +1,4 @@
+com/example/core/BuildConfig.java
+ com.example.core.BuildConfig
+com/example/core/databinding/ProgresssDialogBinding.java
+ com.example.core.databinding.ProgresssDialogBinding

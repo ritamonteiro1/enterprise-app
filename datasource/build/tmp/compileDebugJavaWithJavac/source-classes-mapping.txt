@@ -1,0 +1,2 @@
+com/example/datasource/BuildConfig.java
+ com.example.datasource.BuildConfig

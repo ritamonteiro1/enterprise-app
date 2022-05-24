@@ -1,0 +1,18 @@
+R_DEF: Internal format may change without notice
+local
+id loginButton
+id loginConstraintLayout
+id loginEmailEditText
+id loginEmailTextInputLayout
+id loginFragment
+id loginFragmentContainer
+id loginLogoImageView
+id loginPasswordEditText
+id loginPasswordTextInputLayout
+id loginPresentationTextView
+id loginScrollView
+id loginWelcomeTextView
+id login_navigation
+layout activity_login
+layout fragment_login
+navigation login_nav_graph

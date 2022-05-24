@@ -1,0 +1,2 @@
+com/example/navigation/BuildConfig.java
+ com.example.navigation.BuildConfig

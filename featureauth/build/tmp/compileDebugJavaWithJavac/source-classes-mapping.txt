@@ -1,0 +1,6 @@
+com/example/featureauth/databinding/ActivityLoginBinding.java
+ com.example.featureauth.databinding.ActivityLoginBinding
+com/example/featureauth/databinding/FragmentLoginBinding.java
+ com.example.featureauth.databinding.FragmentLoginBinding
+com/example/featureauth/BuildConfig.java
+ com.example.featureauth.BuildConfig

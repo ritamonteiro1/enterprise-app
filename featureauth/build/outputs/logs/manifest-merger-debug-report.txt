@@ -1,0 +1,25 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml:2:1-46
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml:2:1-46
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml:2:1-46
+	package
+		ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml:2:11-44
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml:2:1-46
+uses-sdk
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+		ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+		ADDED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
+		INJECTED from /Users/ritamonteiro/Documents/ProjetosAndroid/enterprise/featureauth/src/main/AndroidManifest.xml
