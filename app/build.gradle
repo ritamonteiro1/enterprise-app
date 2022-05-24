@@ -76,4 +76,11 @@ dependencies {
     testImplementation "io.mockk:mockk:${mockkVersion}"
 
     implementation(project(':di'))
+    implementation(project(':featureauth'))
+    implementation(project(':featurehome'))
+    implementation(project(':navigation'))
+    implementation(project(':datasource'))
+    implementation(project(':core'))
+
+
 }

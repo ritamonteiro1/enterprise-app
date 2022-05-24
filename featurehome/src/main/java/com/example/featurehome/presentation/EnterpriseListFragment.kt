@@ -3,8 +3,10 @@ package com.example.featurehome.presentation
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.core.constants.Constants
 import com.example.core.extensions.showErrorDialog
@@ -13,19 +15,31 @@ import com.example.core.model.NetworkErrorException
 import com.example.datasource.model.enterprise.Enterprise
 import com.example.featurehome.R
 import com.example.featurehome.databinding.FragmentEnterpriseListBinding
+import com.example.navigation.UserTokensNavigation
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EnterpriseListFragment : Fragment() {
     private val viewModel: EnterpriseListViewModel by viewModel()
-    private lateinit var binding: FragmentEnterpriseListBinding
+    private var _binding: FragmentEnterpriseListBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentEnterpriseListBinding.inflate(layoutInflater)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    ): View {
+        _binding = FragmentEnterpriseListBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,13 +63,17 @@ class EnterpriseListFragment : Fragment() {
                 return true
             }
         })
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     private fun getEnterpriseList(newText: String) {
-        val accessToken = activity?.intent?.getStringExtra(Constants.HEADER_ACCESS_TOKEN).orEmpty()
-        val uid = activity?.intent?.getStringExtra(Constants.HEADER_UID).orEmpty()
-        val client = activity?.intent?.getStringExtra(Constants.HEADER_CLIENT).orEmpty()
-        viewModel.getEnterpriseList(newText, accessToken, client, uid)
+        val userTokens = recoverUserTokens()
+        viewModel.getEnterpriseList(
+            newText,
+            userTokens?.accessToken.orEmpty(),
+            userTokens?.client.orEmpty(),
+            userTokens?.uid.orEmpty()
+        )
     }
 
     private fun setupObservers() {
@@ -81,7 +99,7 @@ class EnterpriseListFragment : Fragment() {
                         is NetworkErrorException -> getString(R.string.error_connection_fail)
                         else -> getString(R.string.occurred_error)
                     }
-                    activity?.showErrorDialog(errorMessage)
+                    requireContext().showErrorDialog(errorMessage)
                 }
             }
         }
@@ -89,7 +107,9 @@ class EnterpriseListFragment : Fragment() {
 
     private fun setupEnterpriseListAdapter(enterpriseList: List<Enterprise>): EnterpriseListAdapter {
         return EnterpriseListAdapter(enterpriseList) { enterprise ->
-            //val action = EnterpriseListFragmentDirec
+            val action =
+                EnterpriseListFragmentDirections.actionEnterpriseListToEnterpriseDetails(enterprise)
+            findNavController().navigate(action)
         }
     }
 
@@ -102,7 +122,13 @@ class EnterpriseListFragment : Fragment() {
     }
 
     private fun setupToolBar() {
-        //setSupportActionBar(binding.enterpriseListToolBar)
-        activity?.actionBar?.setDisplayShowTitleEnabled(false)
+        (requireActivity() as? AppCompatActivity)?.apply {
+            setSupportActionBar(binding.enterpriseListToolBar)
+            activity?.actionBar?.setDisplayShowTitleEnabled(false)
+        }
+    }
+
+    private fun recoverUserTokens(): UserTokensNavigation? {
+        return requireActivity().intent.getParcelableExtra(Constants.USER_TOKENS_KEY)
     }
 }

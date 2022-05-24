@@ -23,16 +23,22 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class LoginFragment : Fragment() {
     private val boundary: AuthBoundary by inject()
     private val viewModel: LoginViewModel by viewModel()
-    private lateinit var binding: FragmentLoginBinding
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
     private val loadingDialog by lazy { activity?.createLoadingDialog() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentLoginBinding.inflate(layoutInflater)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    ): View {
+        _binding = FragmentLoginBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -86,7 +92,8 @@ class LoginFragment : Fragment() {
 
     private fun moveToMainActivity(accessToken: String, uid: String, client: String) {
         val userTokensNavigation = UserTokensNavigation(accessToken, uid, client)
-        boundary.navigateToHome(activity, userTokensNavigation)
+        boundary.navigateToHome(requireContext(), userTokensNavigation)
+//        requireActivity().finish()
     }
 
     private fun handleInvalidPassword(isValidPassword: PasswordStatus) {

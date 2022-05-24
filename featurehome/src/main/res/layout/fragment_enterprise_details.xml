@@ -6,9 +6,19 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <include
-        android:id="@+id/enterpriseDetailsToolBar"
-        layout="@layout/content_tool_bar" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/enterpriseDetailsToolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/medium_pink"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:titleTextColor="@color/white" />
+
 
     <ScrollView
         android:id="@+id/enterpriseDetailsScrollView"
@@ -17,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterpriseDetailsToolBar">
+        app:layout_constraintTop_toBottomOf="@+id/enterpriseDetailsToolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/enterpriseDetailsConstraintLayout"

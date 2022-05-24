@@ -18,6 +18,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.login) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.loginFragmentContainer) as NavHostFragment
     }
 }

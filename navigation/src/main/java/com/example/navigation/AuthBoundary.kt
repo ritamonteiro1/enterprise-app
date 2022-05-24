@@ -1,7 +1,7 @@
 package com.example.navigation
 
-import android.app.Activity
+import android.content.Context
 
 interface AuthBoundary {
-    fun navigateToHome(activity: Activity?, userTokensNavigation: UserTokensNavigation)
+    fun navigateToHome(context: Context, userTokensNavigation: UserTokensNavigation)
 }
