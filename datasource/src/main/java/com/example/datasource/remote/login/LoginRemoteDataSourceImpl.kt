@@ -1,15 +1,15 @@
 package com.example.datasource.remote.login
 
 
-import com.example.core.constants.Constants
-import com.example.core.model.ServerErrorException
-import com.example.core.model.UnauthorizedException
 import com.example.datasource.api.LoginService
 import com.example.datasource.api.retrofitWrapper
+import com.example.datasource.constants.Constants
 import com.example.datasource.model.UserTokens
+import com.example.datasource.model.exceptions.ServerErrorException
+import com.example.datasource.model.exceptions.UnauthorizedException
+import com.example.datasource.model.user.User
 import com.example.datasource.remote.login.model.UserRequest
 import com.example.datasource.result.Result
-import com.example.datasource.model.user.User
 import okhttp3.ResponseBody
 import retrofit2.Response
 import javax.net.ssl.HttpsURLConnection

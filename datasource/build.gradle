@@ -60,5 +60,4 @@ dependencies {
     def mockkVersion = "1.12.3"
     testImplementation "io.mockk:mockk:${mockkVersion}"
 
-    implementation(project(':core'))
 }

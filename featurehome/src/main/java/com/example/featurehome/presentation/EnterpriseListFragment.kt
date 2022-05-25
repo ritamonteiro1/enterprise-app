@@ -10,9 +10,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.core.constants.Constants
 import com.example.core.extensions.showErrorDialog
-import com.example.core.model.EmptyEnterpriseListException
-import com.example.core.model.NetworkErrorException
 import com.example.datasource.model.enterprise.Enterprise
+import com.example.datasource.model.exceptions.EmptyEnterpriseListException
+import com.example.datasource.model.exceptions.NetworkErrorException
 import com.example.featurehome.R
 import com.example.featurehome.databinding.FragmentEnterpriseListBinding
 import com.example.navigation.UserTokensNavigation

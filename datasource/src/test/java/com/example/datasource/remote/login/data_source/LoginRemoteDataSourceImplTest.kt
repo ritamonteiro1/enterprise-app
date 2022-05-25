@@ -1,11 +1,11 @@
 package com.example.datasource.remote.login.data_source
 
-import com.example.core.model.ServerErrorException
 import com.example.datasource.api.LoginService
+import com.example.datasource.model.exceptions.ServerErrorException
 import com.example.datasource.model.user.User
-import com.example.datasource.result.Result
 import com.example.datasource.remote.login.LoginRemoteDataSourceImpl
 import com.example.datasource.remote.login.model.UserRequest
+import com.example.datasource.result.Result
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify

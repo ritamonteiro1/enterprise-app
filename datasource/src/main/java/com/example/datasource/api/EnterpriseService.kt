@@ -1,6 +1,6 @@
 package com.example.datasource.api
 
-import com.example.core.constants.Constants
+import com.example.datasource.constants.Constants
 import com.example.datasource.remote.enterprise.model.EnterpriseListResponse
 import retrofit2.http.GET
 import retrofit2.http.Header

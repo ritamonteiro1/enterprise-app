@@ -1,17 +1,16 @@
 package com.example.datasource.remote.enterprise.data_source
 
-import com.example.core.model.ServerErrorException
 import com.example.datasource.api.EnterpriseService
+import com.example.datasource.model.exceptions.ServerErrorException
 import com.example.datasource.remote.enterprise.EnterpriseRemoteDataSourceImpl
 import com.example.datasource.remote.enterprise.model.EnterpriseListResponse
-import io.mockk.clearAllMocks
 import com.example.datasource.result.Result
+import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

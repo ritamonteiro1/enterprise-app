@@ -1,4 +1,4 @@
-package com.example.core.model
+package com.example.datasource.model.exceptions
 
 class GenericErrorException : Exception()
 

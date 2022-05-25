@@ -1,7 +1,7 @@
 package com.example.featurehome.domain.use_case
 
-import com.example.core.model.EmptyEnterpriseListException
 import com.example.datasource.model.enterprise.Enterprise
+import com.example.datasource.model.exceptions.EmptyEnterpriseListException
 import com.example.datasource.repository.enterprise.EnterpriseRepository
 import com.example.datasource.result.Result
 
