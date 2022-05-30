@@ -32,4 +32,4 @@ Módulos:
 
 ##
 
-<img height="480px" src="images/image1.png"> <img height="480px" src="images/image2.png"> <img height="480px" src="images/image3.png"> <img height="480px" src="images/image4.png"> <img height="480px" src="images/image5.png"> <img height="480px" src="images/image6.png"> <img height="480px" src="images/image7.png"> <img height="480px" src="images/image8.png"> <img height="480px" src="images/image9.png"> <img height="480px" src="images/image10.png"> <img height="480px" src="images/image11.png"> <img height="480px" src="images/image12.png">
+<img height="480px" src="images/image1.png"> <img height="480px" src="images/image2.png"> <img height="480px" src="images/image3.png"> <img height="480px" src="images/image4.png"> <img height="480px" src="images/image6.png"> <img height="480px" src="images/image13.png"> <img height="480px" src="images/image5.png"> <img height="480px" src="images/image7.png"> <img height="480px" src="images/image8.png"> <img height="480px" src="images/image9.png"> <img height="480px" src="images/image10.png"> <img height="480px" src="images/image11.png"> <img height="480px" src="images/image12.png">
