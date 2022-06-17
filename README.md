@@ -12,15 +12,6 @@ Composto por 3 telas:
 
 ##
 
-Principais bibliotecas utilizadas:
-- Gerenciamento de estado: ViewModel, Coroutines
-- Requisições api REST: Retrofit
-- Download de imagens: Glide
-- Injeção de dependência: Koin
-- Testes unitários: JUnit4 e Mockk
-
-##
-
 Módulos:
 - App
 - Core
@@ -29,6 +20,18 @@ Módulos:
 - Feature Auth
 - Feature Home
 - Data source
+
+<img height="260px" src="images/image14.png">
+
+##
+
+Principais bibliotecas utilizadas:
+- Gerenciamento de estado: ViewModel, Coroutines
+- Requisições api REST: Retrofit
+- Download de imagens: Glide
+- Injeção de dependência: Koin
+- Testes unitários: JUnit4 e Mockk
+- Compose 
 
 ##
 
