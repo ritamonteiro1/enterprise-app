@@ -18,6 +18,7 @@ Principais bibliotecas utilizadas:
 - Download de imagens: Glide
 - Injeção de dependência: Koin
 - Testes unitários: JUnit4 e Mockk
+- Compose 
 
 ##
 
@@ -29,6 +30,8 @@ Módulos:
 - Feature Auth
 - Feature Home
 - Data source
+
+<img height="260px" src="images/image14.png">
 
 ##
 
